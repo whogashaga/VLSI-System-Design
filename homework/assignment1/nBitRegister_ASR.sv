@@ -1,15 +1,17 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Oregon State University 
-// Engineer: Sanpreet Gill
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
-// Create Date: 04/07/2024 06:10:00 PM
-// Design Name: 
-// Module Name: nBitRegister_ASR
-// Project Name: Homework 1
+// Create Date: 04/07/2024 06:42:51 PM
+// Design Name: nBitRegister_SSR
+// Module Name: 
+// Project Name: Assignment  1
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: This is a modeling of nBit Register which takes variable size as input
+//              and stores the value of input at the positive edge of the clock. This module can be
+//              reset asynchronously.
 // 
 // Dependencies: 
 // 

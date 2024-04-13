@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/coe_user/Documents/ECE574/homework/assignment1/nBitCounter_ASR.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nBitCounter_ASR
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/coe_user/Documents/ECE574/homework/assignment1/nBitCounter_SSR.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nBitCounter_SSR
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/nBitCounter_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nBitCounter_tb

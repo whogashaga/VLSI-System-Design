@@ -1,0 +1,61 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04/12/2024 02:52:14 PM
+// Design Name: 
+// Module Name: tb_Detect_Edge
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_Detect_Edge();
+    
+    reg D;
+    reg CLK;
+    reg SR;
+    
+    wire QR;
+    wire QF;
+    wire QA;
+    
+    detect_edge uut0(
+        .CLK(CLK),
+        .D(D),
+        .SR(SR),
+        .QR(QR),
+        .QF(QF),
+        .QA(QA)
+    );
+    
+    always begin
+        #5 CLK = ~CLK;
+    end
+    
+    initial begin   
+        SR = 1;
+        D = 0;
+        
+        #10
+        SR = 0;
+        
+        #28
+        D = 1;
+        
+        #100
+        D = 0;
+        
+    end
+    
+endmodule

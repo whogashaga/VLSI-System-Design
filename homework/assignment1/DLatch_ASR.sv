@@ -1,15 +1,18 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Oregon State University 
-// Engineer: Sanpreet Gill
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
-// Create Date: 04/07/2024 05:09:23 PM
-// Design Name: 
-// Module Name: DLatch_ASR
-// Project Name: Homework 1
+// Create Date: 04/07/2024 06:42:51 PM
+// Design Name: DFF_ASR
+// Module Name: 
+// Project Name: Assignment  1
 // Target Devices: 
-// Tool Versions: 
-// Description: 
+// Tool Versions:
+// Description: The operation of a D latch has two inputs: a data input (labeled D) and a 
+//              control input ( chip enable ). When the control input is activated, the D latch 
+//              copies the value of the data input to its output. This makes it useful for temporarily storing data 
+//              or synchronizing signals in digital systems.
 // 
 // Dependencies: 
 // 
