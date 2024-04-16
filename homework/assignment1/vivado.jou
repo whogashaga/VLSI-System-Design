@@ -3,22 +3,15 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Fri Apr 12 16:25:33 2024
-# Process ID: 21004
+# Start of session at: Mon Apr 15 23:20:52 2024
+# Process ID: 16924
 # Current directory: C:/Users/coe_user/Documents/ECE574/homework/assignment1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21672 C:\Users\coe_user\Documents\ECE574\homework\assignment1\assignment1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15012 C:\Users\coe_user\Documents\ECE574\homework\assignment1\assignment1.xpr
 # Log file: C:/Users/coe_user/Documents/ECE574/homework/assignment1/vivado.log
 # Journal file: C:/Users/coe_user/Documents/ECE574/homework/assignment1\vivado.jou
 # Running On: coe-loan-008, OS: Windows, CPU Frequency: 2304 MHz, CPU Physical cores: 4, Host memory: 34040 MB
-#-----------------------------------------------------------sstart_guioopen_project C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.xprupdate_compile_order -fileset sources_1
-launch_simulation
-source DFF_tb.tcl
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top nBitCounter_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-launch_simulation
-close_sim
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.xpr
+update_compile_order -fileset sources_1
+close_project

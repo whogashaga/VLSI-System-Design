@@ -1,0 +1,35 @@
+srcscan starts
+=============== Using precompiled files for SV std libs ===========
+INFO: The Verilog library search path for library "std" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/sv/std" (VERI-1509)
+INFO: The Verilog library search path for library "uvm" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/sv/uvm" (VERI-1509)
+INFO: analyzing module DFF_ASR (VERI-9002)
+INFO: analyzing module DFF_SSR (VERI-9002)
+INFO: analyzing module DFF_tb (VERI-9002)
+INFO: analyzing module DLatch_ASR (VERI-9002)
+INFO: analyzing module DLatch_SSR (VERI-9002)
+INFO: analyzing module DLatch_tb (VERI-9002)
+INFO: analyzing module nBitCounter_ASR (VERI-9002)
+INFO: analyzing module nBitCounter_SSR (VERI-9002)
+INFO: analyzing module nBitCounter_tb (VERI-9002)
+INFO: analyzing module nBitRegister_ASR (VERI-9002)
+INFO: analyzing module nBitRegister_SSR (VERI-9002)
+INFO: analyzing module nBitRegister_tb (VERI-9002)
+Listing tops:
+VeriTop library:xil_defaultlib mod:DFF_tb
+VeriTop library:xil_defaultlib mod:DLatch_tb
+VeriTop library:xil_defaultlib mod:nBitCounter_tb
+VeriTop library:xil_defaultlib mod:nBitRegister_tb
+END of tops
+C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/DFF_tb.sv(22): INFO: compiling module 'DFF_tb_default' (VERI-1018)
+C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/DLatch_tb.sv(27): INFO: compiling module 'DLatch_tb_default' (VERI-1018)
+C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/nBitCounter_tb.sv(20): INFO: compiling module 'nBitCounter_tb_default' (VERI-1018)
+C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/nBitRegister_tb.sv(21): INFO: compiling module 'nBitRegister_tb_default' (VERI-1018)
+ModName: nBitCounter_ASR(SIZE=4)
+ModName: nBitCounter_SSR(SIZE=4)
+ModName: nBitRegister_ASR(SIZE=4)
+ModName: nBitRegister_SSR(SIZE=4)
+BaseName nBitCounter_ASR has 1 entries
+BaseName nBitCounter_SSR has 1 entries
+BaseName nBitRegister_ASR has 1 entries
+BaseName nBitRegister_SSR has 1 entries
+srcscan exits with return value 0

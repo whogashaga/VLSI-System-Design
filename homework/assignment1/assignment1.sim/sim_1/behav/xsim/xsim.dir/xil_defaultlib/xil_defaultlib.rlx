@@ -3,9 +3,6 @@
 Oct 13 2023
 20:47:58
 C:/Users/coe_user/Documents/ECE574/homework/assignment1/DFF_ASR.sv,1712959608,systemVerilog,,C:/Users/coe_user/Documents/ECE574/homework/assignment1/DFF_SSR.sv,,DFF_ASR,,uvm,,,,,,
-C:/Users/coe_user/Documents/ECE574/homework/assignment1/DFF_SSR.sv,1712959608,systemVerilog,,C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/DFF_tb.sv,,DFF_SSR,,uvm,,,,,,
+C:/Users/coe_user/Documents/ECE574/homework/assignment1/DFF_SSR.sv,1712701480,systemVerilog,,C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/DFF_tb.sv,,DFF_SSR,,uvm,,,,,,
 C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,uvm,,,,,,
-C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/DFF_tb.sv,1712958586,systemVerilog,,,,DFF_tb,,uvm,,,,,,
-C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/nBitCounter_tb.sv,1712966453,systemVerilog,,,,nBitCounter_tb,,uvm,,,,,,
-C:/Users/coe_user/Documents/ECE574/homework/assignment1/nBitCounter_ASR.sv,1712959608,systemVerilog,,C:/Users/coe_user/Documents/ECE574/homework/assignment1/nBitCounter_SSR.sv,,nBitCounter_ASR,,uvm,,,,,,
-C:/Users/coe_user/Documents/ECE574/homework/assignment1/nBitCounter_SSR.sv,1712966324,systemVerilog,,C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/nBitCounter_tb.sv,,nBitCounter_SSR,,uvm,,,,,,
+C:/Users/coe_user/Documents/ECE574/homework/assignment1/assignment1.srcs/sim_1/new/DFF_tb.sv,1712958586,systemVerilog,,,,tb,,uvm,,,,,,

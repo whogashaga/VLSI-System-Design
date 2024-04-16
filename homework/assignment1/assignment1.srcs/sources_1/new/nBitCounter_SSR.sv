@@ -25,19 +25,19 @@
 
 
 module nBitCounter_SSR #(parameter int SIZE = 8)(
-    input CLK,  // Clock 
+    input CLK,  //Module Clock 
     input CE,   // Chip Enable
-    input SR,   // Reset
+    input SR,   //Active High Synchronous Reset
     input reg [SIZE-1 : 0] SRINIT,   //Initial array Value
     output reg [SIZE-1 : 0] DOUT    //DOUT array
     );
     
     always @(posedge CLK) begin
         if (SR) begin
-            DOUT <= SRINIT;
+            DOUT <= 0;
         end
         else if (CE) begin
-           DOUT <= DOUT + 1'b1;            
+            DOUT <= DOUT + 1'b1;            
         end
     end
 endmodule
