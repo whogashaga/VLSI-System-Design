@@ -1,0 +1,8 @@
+srcscan starts
+=============== Using precompiled files for SV std libs ===========
+INFO: The Verilog library search path for library "std" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/sv/std" (VERI-1509)
+INFO: The Verilog library search path for library "uvm" is now "C:/Xilinx/Visrcscan exits with return value 0
+" (VERI-1509)
+INFO: analyzing module DFF_SSR (VERI-9002)
+INFO: analyzing module detect_edge (VERI-9002)
+srcscan exits with return value 0
