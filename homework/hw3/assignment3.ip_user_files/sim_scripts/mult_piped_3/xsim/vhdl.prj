@@ -1,0 +1,5 @@
+vhdl xil_defaultlib  \
+"../../../../assignment3.gen/sources_1/ip/mult_piped_3/sim/mult_piped_3.vhd" \
+
+# Do not sort compile order
+nosort
