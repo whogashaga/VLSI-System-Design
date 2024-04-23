@@ -19,7 +19,7 @@
 
 
 module detect_edge(
-input CLK,
+    input CLK,
     input D,
     input SR,
     

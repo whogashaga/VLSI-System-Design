@@ -2,7 +2,9 @@
 2020.2
 Oct 13 2023
 20:47:58
-C:/Users/coe_user/Documents/ECE574/homework/hw2/Assignment2.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,uvm,,,,,,
-C:/Users/coe_user/Documents/ECE574/homework/hw2/Assignment2.srcs/sim_1/new/tb_detect_edge.sv,1713305750,systemVerilog,,,,tb_detect_edge,,uvm,,,,,,
-C:/Users/coe_user/Documents/ECE574/homework/hw2/Assignment2.srcs/sources_1/new/DFF_SSR.sv,1712959608,systemVerilog,,C:/Users/coe_user/Documents/ECE574/homework/hw2/Assignment2.srcs/sources_1/new/detect_edge.sv,,DFF_SSR,,uvm,,,,,,
-C:/Users/coe_user/Documents/ECE574/homework/hw2/Assignment2.srcs/sources_1/new/detect_edge.sv,1713305626,systemVerilog,,C:/Users/coe_user/Documents/ECE574/homework/hw2/Assignment2.srcs/sim_1/new/tb_detect_edge.sv,,detect_edge,,uvm,,,,,,
+C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,uvm,,,,,,
+C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.srcs/sim_1/new/tb_detect_edge.sv,1713305750,systemVerilog,,,,tb_detect_edge,,uvm,,,,,,
+C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.srcs/sim_1/new/tb_nxmBitShiftReg.sv,1713914032,systemVerilog,,,,tb_nxmBitShiftReg,,uvm,,,,,,
+C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.srcs/sources_1/new/DFF_SSR.sv,1712959608,systemVerilog,,C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.srcs/sources_1/new/detect_edge.sv,,DFF_SSR,,uvm,,,,,,
+C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.srcs/sources_1/new/detect_edge.sv,1713305626,systemVerilog,,C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.srcs/sim_1/new/tb_detect_edge.sv,,detect_edge,,uvm,,,,,,
+C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.srcs/sources_1/new/nxmBitShiftReg.sv,1713913732,systemVerilog,,C:/Users/coe_user/Documents/ECE574_Local/homework/hw2/Assignment2.srcs/sim_1/new/tb_nxmBitShiftReg.sv,,nxmBitShiftReg,,uvm,,,,,,
