@@ -30,8 +30,6 @@ module tb_detect_edge();
     wire QF;
     wire QA;
     
-    parameter PERIOD = 20;
-    
     detect_edge uut0(
         .CLK(CLK),
         .D(D),
@@ -41,41 +39,53 @@ module tb_detect_edge();
         .QA(QA)
     );
     
+    parameter PERIOD = 20;
+    
     always begin
         #(PERIOD/2) CLK = ~CLK;
     end
     
     initial begin
-    
-        // initial value    
-        CLK = '0;   
-        SR = '0;
+        CLK = '0;
+        
+        //Resetting the circuit and bringing it to a known state
+        #(PERIOD/2);   
+        SR = '1;
         D = '0;
         
-        // Reset 
-        #(PERIOD*0.8);
-        SR = '1;
-        
-        #PERIOD;
+        #(PERIOD/2);
         SR = '0;
         
-        // Test rising edge        
-        #(PERIOD*1.5);
+        $display("Test Set 1 at time [%t]", $realtime);
+        // To check the rising edge
+        #(PERIOD/2);
         D = '1;
         
-        // Test falling edge
-        #(PERIOD*2);
-        D = '0;     
+        // To check the falling edge
+        #(2*PERIOD);
+        D = '0;
         
-        repeat(20) begin 
-            #PERIOD D = ~D;
-        end 
+        $display("Test Set 2 at time [%t]", $realtime);
+        //Giving stimulus when SR is enabled
+        #(PERIOD);
+        SR = '1;
         
-        #(PERIOD*0.8);
-        SR = '1;  
-        repeat(20) begin 
-            #PERIOD D = ~D;
-        end 
+        
+        D = '1;
+        #(PERIOD/2);
+        
+        D = '0;      
+        #(2*PERIOD);  
+        SR = '0;
+        
+        // Repetedly toggling 
+        $display("Test Set 2 at time [%t]", $realtime);
+        repeat(15) begin 
+            D = ~D;
+            #(2*PERIOD);
+        end
+        $stop;
+        
     end
 
 endmodule

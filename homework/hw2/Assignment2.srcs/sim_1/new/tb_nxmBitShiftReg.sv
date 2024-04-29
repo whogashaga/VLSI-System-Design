@@ -1,15 +1,16 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
-// Create Date: 04/23/2024 01:24:07 PM
-// Design Name: 
+// Create Date: 04/16/2024 01:03:33 PM
+// Design Name: tb_nxmBitShiftReg.sv
 // Module Name: tb_nxmBitShiftReg
-// Project Name: 
+// Project Name: Assignment 2
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: This module instantiates nxmBitShiftReg to test its functionality. 
+//              
 // 
 // Dependencies: 
 // 
@@ -29,7 +30,6 @@ module tb_nxmBitShiftReg();
     logic SR;
     logic CE;
     logic [N*M-1: 0] SRINIT;
-//    logic [33-1: 0] SRINIT;
     logic [1:0] OPMODE;
     logic [M-1: 0] DOUT;
     logic [N*M-1: 0] DOUT_F;
@@ -52,26 +52,81 @@ module tb_nxmBitShiftReg();
         CE = 1;
         DIN = 4'b0000;
         
+        // Testing all combinations of OPMODE for 8 clock cycles for each operation. 
+        
         // Shift Right
-//        OPMODE = 2'b00;
-//        resetRegValue();
-//        #(PERIOD*8);
+        OPMODE = 2'b00;
+        resetRegValue();
+        #(PERIOD*8);
         
         // Shift Left
-//        OPMODE = 2'b01;
-//        resetRegValue();
-//        #(PERIOD*8);
+        OPMODE = 2'b01;
+        resetRegValue();
+        #(PERIOD*8);
         
         // Rotate Right
-//        OPMODE = 2'b10;
-//        resetRegValue();
-//        #(PERIOD*8);
+        OPMODE = 2'b10;
+        resetRegValue();
+        #(PERIOD*8);
         
-//        // Rotate Left
+        // Rotate Left
         OPMODE = 2'b11;
         resetRegValue();
         #(PERIOD*8);
         
+        // Testing Operation when CE = 0
+        CE = '0;
+        // Shift Left
+        OPMODE = 2'b01;
+        resetRegValue();
+        #(PERIOD*8);
+        
+        // Rotate Right
+        OPMODE = 2'b10;
+        resetRegValue();
+        #(PERIOD*8);       
+        CE = '1; 
+        
+        // Testing Operation when SR = 1
+        SR = '1;
+        // Rotate Right
+        OPMODE = 2'b10;
+        resetRegValue();
+        #(PERIOD*8);
+        
+        // Rotate Left
+        OPMODE = 2'b11;
+        resetRegValue();
+        #(PERIOD*8);
+        
+        // Testing with different SRINIT and different DIN
+        SRINIT = {{8{1'b1}}, {8{1'b0}}, 4'b1011, 4'b1100, 4'b1101, 4'b0111};             
+        
+        DIN = 4'b0100;
+        // Shift Right
+        OPMODE = 2'b00;
+        resetRegValue();
+        #(PERIOD*8);
+        
+        DIN = 4'b0101;
+        // Shift Left
+        OPMODE = 2'b01;
+        resetRegValue();
+        #(PERIOD*8);
+        
+        DIN = 4'b1111;
+        // Rotate Right
+        OPMODE = 2'b10;
+        resetRegValue();
+        #(PERIOD*8);
+        
+        DIN = 4'b0101;
+        // Rotate Left
+        OPMODE = 2'b11;
+        resetRegValue();
+        #(PERIOD*8);
+        
+                
         $stop;
     end
 
