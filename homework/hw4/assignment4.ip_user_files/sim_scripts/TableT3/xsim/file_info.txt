@@ -1,0 +1,2 @@
+TableT3.v,verilog,xil_defaultlib,../../../../assignment4.gen/sources_1/ip/TableT3/sim/TableT3.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
