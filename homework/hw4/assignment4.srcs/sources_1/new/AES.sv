@@ -4,7 +4,7 @@
 // Engineer: 
 // 
 // Create Date: 05/02/2024 01:06:34 PM
-// Design Name: 
+// Design Name: AES.sv
 // Module Name: AES
 // Project Name: 
 // Target Devices: 
@@ -35,7 +35,7 @@ TableT0 uut0 (
   .douta(douta),  // output wire [31 : 0] douta
   .clkb(clkb),    // input wire clkb
   .addrb(addrb),  // input wire [8 : 0] addrb
-  .doutb(doutb)  // output wire [31 : 0] doutb
+  .doutb(doutb)   // output wire [31 : 0] doutb
 );
 
 TableT1 uut1 (
@@ -44,7 +44,7 @@ TableT1 uut1 (
   .douta(douta),  // output wire [31 : 0] douta
   .clkb(clkb),    // input wire clkb
   .addrb(addrb),  // input wire [8 : 0] addrb
-  .doutb(doutb)  // output wire [31 : 0] doutb
+  .doutb(doutb)   // output wire [31 : 0] doutb
 );
 
 TableT2 uut2 (
@@ -53,7 +53,7 @@ TableT2 uut2 (
   .douta(douta),  // output wire [31 : 0] douta
   .clkb(clkb),    // input wire clkb
   .addrb(addrb),  // input wire [8 : 0] addrb
-  .doutb(doutb)  // output wire [31 : 0] doutb
+  .doutb(doutb)   // output wire [31 : 0] doutb
 );
 
 TableT3 uut3 (
@@ -62,14 +62,14 @@ TableT3 uut3 (
   .douta(douta),  // output wire [31 : 0] douta
   .clkb(clkb),    // input wire clkb
   .addrb(addrb),  // input wire [8 : 0] addrb
-  .doutb(doutb)  // output wire [31 : 0] doutb
+  .doutb(doutb)   // output wire [31 : 0] doutb
 );
 
 fixedKeySchedule scheduleUut (
   .clka(clka),    // input wire clka
   .ena(ena),      // input wire ena
   .addra(addra),  // input wire [3 : 0] addra
-  .douta(douta)  // output wire [127 : 0] douta
+  .douta(douta)   // output wire [127 : 0] douta
 );
 
 endmodule
