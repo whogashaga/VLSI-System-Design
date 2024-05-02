@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../assignment3.gen/sources_1/ip/dsp_addsub/sim/dsp_addsub.vhd" \
-
-# Do not sort compile order
-nosort

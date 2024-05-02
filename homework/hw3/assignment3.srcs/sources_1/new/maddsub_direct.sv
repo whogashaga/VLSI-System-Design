@@ -1,15 +1,17 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
 // Create Date: 04/19/2024 02:55:34 PM
-// Design Name: 
+// Design Name: maddsub_direct.sv
 // Module Name: maddsub_direct
-// Project Name: 
+// Project Name: Assignment 3
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: Arithmetic Unit with DSP slides using CONCAT+C and C-CONCAT to implement to logic:
+//              If R = A + B >= M, then S = (A + B) - M is the result, else R
+//              If R = A - B <= 0, then S = (A - B) + M is the result, else R
 // 
 // Dependencies: 
 // 
@@ -42,8 +44,8 @@ module maddsub_direct(
     wire [47:0] extDout2;
     
     assign extDinA = {{14{1'b0}}, dinA};
-    assign extDinB = {{14{1'b0}}, dinB};
-    assign extDinM = {{14{1'b0}}, dinM};
+    assign extDinB = (subtract == 1'b1)? -{{14{1'b0}}, dinB} : {{14{1'b0}}, dinB};
+    assign extDinM = (subtract == 1'b1)? -{{14{1'b0}}, dinM} : {{14{1'b0}}, dinM};
         
     dsp_addsub dsp1 (
       .SEL(1'b0),        // input wire [0 : 0] SEL          // Does CONCAT + C
@@ -76,14 +78,13 @@ module maddsub_direct(
                            (mux_condition == 3'b001) ? 1'b1 :
                            (mux_condition == 3'b010) ? 1'b0 :
                            (mux_condition == 3'b011) ? 1'bx :   // should not happen (A+B cannot be large at the same time smaller than M)
-                           (mux_condition == 3'b100) ? 1'b0 :
-                           (mux_condition == 3'b101) ? 1'b0 :
-                           (mux_condition == 3'b110) ? 1'b1 :
+                           (mux_condition == 3'b100) ? 1'b1 :
+                           (mux_condition == 3'b101) ? 1'b1 :
+                           (mux_condition == 3'b110) ? 1'b0 :
                            (mux_condition == 3'b111) ? 1'bx :   // should not happen (A-B cannot be small at the same time (A-B + M) be smaller than 0)
                            1'b0;                     
      // extDout1 = R
      // extDout2 = S
      // if out_select = 1 then S, else R
      assign dout = (output_select == 1'b1 ? extDout1[33:0] : extDout2[33:0]);
-    
 endmodule

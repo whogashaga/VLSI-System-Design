@@ -1572,11 +1572,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 18:27:02 UTC 2024</spirit:value>
+            <spirit:value>Tue Apr 30 05:57:19 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e5dfe5d1</spirit:value>
+            <spirit:value>9:62b2e769</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1600,11 +1600,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 18:27:02 UTC 2024</spirit:value>
+            <spirit:value>Tue Apr 30 05:57:19 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a0f9969</spirit:value>
+            <spirit:value>9:01693733</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1616,6 +1616,10 @@
           <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Tue Apr 30 05:54:50 UTC 2024</spirit:value>
+          </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:7a0f9969</spirit:value>
@@ -1632,11 +1636,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 18:27:02 UTC 2024</spirit:value>
+            <spirit:value>Tue Apr 30 05:57:19 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a0f9969</spirit:value>
+            <spirit:value>9:01693733</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1651,11 +1655,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 18:26:59 UTC 2024</spirit:value>
+            <spirit:value>Tue Apr 30 05:57:19 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a0f9969</spirit:value>
+            <spirit:value>9:01693733</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1669,11 +1673,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 18:27:02 UTC 2024</spirit:value>
+            <spirit:value>Tue Apr 30 05:57:19 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a0f9969</spirit:value>
+            <spirit:value>9:01693733</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1689,11 +1693,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 18:27:02 UTC 2024</spirit:value>
+            <spirit:value>Tue Apr 30 05:57:19 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e5dfe5d1</spirit:value>
+            <spirit:value>9:62b2e769</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1709,11 +1713,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 18:27:02 UTC 2024</spirit:value>
+            <spirit:value>Tue Apr 30 05:57:19 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a0f9969</spirit:value>
+            <spirit:value>9:01693733</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3340,7 +3344,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_LATENCY</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_LATENCY">-1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_LATENCY">128</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_OPMODES</spirit:name>
@@ -3348,7 +3352,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_REG_CONFIG</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_REG_CONFIG">00000000000011110111101110101100</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_REG_CONFIG">00000000000011110100000000000100</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_TEST_CORE</spirit:name>
@@ -6812,7 +6816,7 @@
     <spirit:parameter>
       <spirit:name>pipeline_options</spirit:name>
       <spirit:displayName>Pipeline Options</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.pipeline_options" spirit:choiceRef="choice_pairs_c1714401" spirit:order="13">Automatic</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.pipeline_options" spirit:choiceRef="choice_pairs_c1714401" spirit:order="13">Expert</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>tier_1</spirit:name>
@@ -6896,11 +6900,11 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>creg_4</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.creg_4" spirit:order="34">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.creg_4" spirit:order="34">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>creg_5</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.creg_5" spirit:order="35">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.creg_5" spirit:order="35">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>concatreg_3</spirit:name>
@@ -6908,11 +6912,11 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>concatreg_4</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.concatreg_4" spirit:order="37">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.concatreg_4" spirit:order="37">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>concatreg_5</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.concatreg_5" spirit:order="38">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.concatreg_5" spirit:order="38">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>opreg_1</spirit:name>
@@ -6928,11 +6932,11 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>opreg_4</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.opreg_4" spirit:order="42">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.opreg_4" spirit:order="42">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>opreg_5</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.opreg_5" spirit:order="43">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.opreg_5" spirit:order="43">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>cinreg_1</spirit:name>
@@ -7170,6 +7174,7 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.concatreg_3" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.concatreg_4" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.concatreg_5" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.creg_2" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.creg_3" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.creg_4" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.creg_5" xilinx:valueSource="user"/>
@@ -7184,7 +7189,11 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.p_full_width" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.p_width" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.pcin_binarywidth" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.pipeline_options" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.preg_6" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.tier_3" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.tier_4" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.tier_5" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

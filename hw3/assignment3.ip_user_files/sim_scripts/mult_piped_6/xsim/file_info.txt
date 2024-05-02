@@ -1,1 +1,0 @@
-mult_piped_6.vhd,vhdl,xil_defaultlib,../../../../assignment3.gen/sources_1/ip/mult_piped_6/sim/mult_piped_6.vhd,

@@ -1,0 +1,55 @@
+bram_addr[8:0] = finalround || 8-bit-addr
+
+scenario:
+rounds 1-9: finalround = 0 || 8-bit-addr
+round 10: finalround = 1 || 8-bit-addr
+
+
+what is my budget / hw resources:
+
+one quarteround:
+- T0, T1, T2, T3 <-- four table lookups
+
+
+to implement one full round:
+4xT0
+4XT1
+4XT2
+4XT3
+
+            A   B
+BRAMT0x = [T00,T01]
+  outputs: T00out, T01out
+BRAMT0y = [T02,T03]
+  outputs: T02out, T03out
+
+addra_T00in[8:0] (=9 bit)  *NOT* 7:0 (8 bit) 
+addrb_T01in[8:0]
+
+
+// sequential (@ posedge clk)
+
+if round_counter == 0 {
+	E0 = plain[127:96] XOR roundKey[127:96]
+	E1 = plain[] XOR roundKey[]
+	E2 = plain[] XOR roundKey[]
+	E3 = plain[31:0] XOR roundKey[31:0]
+}
+
+
+if round_counter == 1...9 {
+	E0 = A0 XOR roundkey[127:96]
+	E1 = A1 XOR roundkey
+	E2 = A2 XOR roundkey
+	E3 = A3 XOR roundkey[31:0]
+}
+
+
+// combinational / hardwire
+// XORing all table outputs
+A0 = T00out ^ T10out ^ T20out ^ T30out
+A1 = T01out ^ Toutput ^ Toutput ^ Toutput
+A2 = T02out ^ Toutput ^ Toutput ^ Toutput
+A3 = T03out ^ Toutput ^ Toutput ^ Toutput
+
+
