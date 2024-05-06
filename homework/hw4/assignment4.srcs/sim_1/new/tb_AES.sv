@@ -25,14 +25,14 @@ module tb_AES();
     logic clk;
     logic rst;
     logic start;
-    logic [127:0] plainText;
+    logic [127:0] plain;
     logic [127:0] cipher;
     logic valid;
     
     AES uut (
         .clk(clk),
         .rst(rst),
-        .plain(plainText),
+        .plain(plain),
         .start(start),
         .cipher(cipher),
         .valid(valid)
@@ -43,13 +43,19 @@ module tb_AES();
     end
 
     initial begin
-        clk = 0;
-        rst = 1; #10; rst = 0;
-        
-        start = 1;
-        plainText = 128'h00102030405060708090a0b0c0d0e0f0; // example plaintext
-        #400;
+        plain = '0;
+        clk = 1;
         start = 0;
-        $stop;
+        rst = 1; 
+        #100;
+        plain = 128'h00102030405060708090a0b0c0d0e0f0; // example plaintext
+        #100;
+        start = 1;
+        rst = 0;
+        
+        @(posedge valid);
+        #10; start = 0;
+        #100;
+        $finish;
     end
 endmodule
