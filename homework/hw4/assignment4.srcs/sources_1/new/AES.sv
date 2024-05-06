@@ -1,18 +1,18 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
 // Create Date: 05/02/2024 01:06:34 PM
 // Design Name: AES.sv
 // Module Name: AES
-// Project Name: 
+// Project Name: Assignment4
 // Target Devices: 
 // Tool Versions: 
-// Description: 
-// 
+// Description:  Advanced Encryption Standard (AES), a cryptographic algorithm for encryption/decryption of data, a symmetric block cipher
+//               AES encryption with a 128 bit key (resulting in 10 rounds of the AES). 
+//               The input to your AES is the plaintext message, the output of AES is the encrypted ciphertext
 // Dependencies: 
-// 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
@@ -26,7 +26,15 @@ module AES(
     input wire start,
     input wire [128-1:0] plain,
     output reg [128-1:0] cipher,
-    output reg valid
+    output reg valid,
+    reg [31:0] a0,
+    reg [31:0] a1,
+    reg [31:0] a2,
+    reg [31:0] a3,
+    reg [31:0] e0,
+    reg [31:0] e1,
+    reg [31:0] e2,
+    reg [31:0] e3
 );
 
 logic [9-1:0] T00in, T01in, T02in, T03in;
@@ -204,6 +212,10 @@ always_comb begin
     A1 = T01out^T11out^T21out^T31out;
     A2 = T02out^T12out^T22out^T32out;
     A3 = T03out^T13out^T23out^T33out;
+    
+    a0 = A0; a1 = A1; a2 = A2; a3 = A3;
+    e0 = E0; e1 = E1; e2 = E2; e3 = E3;
+        
 end
 
 endmodule
