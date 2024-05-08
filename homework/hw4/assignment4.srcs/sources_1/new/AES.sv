@@ -21,125 +21,60 @@
 
 
 module AES(
-    input wire clk,
-    input wire rst,
-    input wire start,
-    input wire [128-1:0] plain,
-    output reg [128-1:0] cipher,
-    output reg valid,
-    reg [31:0] a0,
-    reg [31:0] a1,
-    reg [31:0] a2,
-    reg [31:0] a3,
-    reg [31:0] e0,
-    reg [31:0] e1,
-    reg [31:0] e2,
-    reg [31:0] e3
-);
-
-logic [9-1:0] T00in, T01in, T02in, T03in;
-logic [9-1:0] T10in, T11in, T12in, T13in;
-logic [9-1:0] T20in, T21in, T22in, T23in;
-logic [9-1:0] T30in, T31in, T32in, T33in;
-
-logic [32-1:0] T00out, T01out, T02out, T03out;
-logic [32-1:0] T10out, T11out, T12out, T13out;
-logic [32-1:0] T20out, T21out, T22out, T23out;
-logic [32-1:0] T30out, T31out, T32out, T33out;
-
-logic [32-1:0] A0, A1, A2, A3;
-logic [32-1:0] E0, E1, E2, E3;
-
-logic [4-1:0] roundCount;
-logic [128-1:0] roundKey;
-logic finalRound;
-logic giveOutput;
-logic waitForMe;
-
-fixedKeySchedule scheduleUut (
-  .clka(clk),          // input wire clka
-  .addra(roundCount),  // input wire [3 : 0] addra
-  .douta(roundKey)     // output wire [127 : 0] douta
-);
-
-TableT0 table0_0 (
-  .clka(clk),     // input wire clka
-  .addra(T00in),  // input wire [8 : 0] addra
-  .douta(T00out), // output wire [31 : 0] douta
-  .clkb(clk),     // input wire clkb
-  .addrb(T01in),  // input wire [8 : 0] addrb
-  .doutb(T01out)  // output wire [31 : 0] doutb
-);
-
-TableT0 table0_1 (
-  .clka(clk),     // input wire clka
-  .addra(T02in),  // input wire [8 : 0] addra
-  .douta(T02out), // output wire [31 : 0] douta
-  .clkb(clk),     // input wire clkb
-  .addrb(T02in),  // input wire [8 : 0] addrb
-  .doutb(T03out)  // output wire [31 : 0] doutb
-);
-
-TableT1 table1_0 (
-  .clka(clk),     // input wire clka
-  .addra(T10in),  // input wire [8 : 0] addra
-  .douta(T10out), // output wire [31 : 0] douta
-  .clkb(clk),     // input wire clkb
-  .addrb(T11in),  // input wire [8 : 0] addrb
-  .doutb(T11out)  // output wire [31 : 0] doutb
-);
-
-TableT1 table1_1 (
-  .clka(clk),     // input wire clka
-  .addra(T12in),  // input wire [8 : 0] addra
-  .douta(T12out), // output wire [31 : 0] douta
-  .clkb(clk),     // input wire clkb
-  .addrb(T13in),  // input wire [8 : 0] addrb
-  .doutb(T13out)  // output wire [31 : 0] doutb
-);
-
-TableT2 table2_0 (
-  .clka(clk),     // input wire clka
-  .addra(T20in),  // input wire [8 : 0] addra
-  .douta(T20out), // output wire [31 : 0] douta
-  .clkb(clk),     // input wire clkb
-  .addrb(T21in),  // input wire [8 : 0] addrb
-  .doutb(T21out)  // output wire [31 : 0] doutb
-);
-
-TableT2 table2_1 (
-  .clka(clk),     // input wire clka
-  .addra(T22in),  // input wire [8 : 0] addra
-  .douta(T22out), // output wire [31 : 0] douta
-  .clkb(clk),     // input wire clkb
-  .addrb(T23in),  // input wire [8 : 0] addrb
-  .doutb(T23out)  // output wire [31 : 0] doutb
-);
-
-TableT3 table3_0 (
-  .clka(clk),     // input wire clka
-  .addra(T30in),  // input wire [8 : 0] addra
-  .douta(T30out), // output wire [31 : 0] douta
-  .clkb(clk),     // input wire clkb
-  .addrb(T31in),  // input wire [8 : 0] addrb
-  .doutb(T31out)  // output wire [31 : 0] doutb
-);
-
-TableT3 table3_1 (
-  .clka(clk),     // input wire clka
-  .addra(T32in),  // input wire [8 : 0] addra
-  .douta(T32out), // output wire [31 : 0] douta
-  .clkb(clk),     // input wire clkb
-  .addrb(T33in),  // input wire [8 : 0] addrb
-  .doutb(T33out)  // output wire [31 : 0] doutb
-);
-
-always @(posedge clk or posedge rst) begin
+    input clk,
+    input rst,
+    input [127:0] plain, // plaintext
+    output reg [127:0] cipher, // ciphertext
+    output reg valid
+    );
+    
+    // Internal signals and variables
+    reg [31:0] E0, E1, E2, E3;
+    wire [31:0] A0, A1, A2, A3;
+    logic finalRound;
+    // 9 bit input address for BRAM
+    wire [8:0] T00, T01, T02, T03;
+    wire [8:0] T10, T11, T12, T13;
+    wire [8:0] T20, T21, T22, T23;
+    wire [8:0] T30, T31, T32, T33;
+    // 32 bit input address for BRAM
+    wire [31:0] T00out, T01out, T02out, T03out;
+    wire [31:0] T10out, T11out, T12out, T13out;
+    wire [31:0] T20out, T21out, T22out, T23out;
+    wire [31:0] T30out, T31out, T32out, T33out;
+        
+    
+    
+    // Instantiating fixedKeySchedule BRAM
+    logic [3:0] roundKeyCounterAddr;
+    logic waitForMe;
+    logic giveOutput;
+    wire [127:0] key;
+    fixedKeySchedule keySchedule (.addra(roundKeyCounterAddr),
+                                  .clka(clk), 
+                                  .douta(key));
+                                  
+    // Instantiating T-tables BRAM 
+    // Table T0 and T0'
+    TableT0 tableT0_0(.addra(T00), .clka(clk), .douta(T00out), .addrb(T01), .clkb(clk), .doutb(T01out));
+    TableT0 tableT0_1(.addra(T02), .clka(clk), .douta(T02out), .addrb(T03), .clkb(clk), .doutb(T03out));                             
+    // Table T1 and T1'
+    TableT1 tableT1_0(.addra(T10), .clka(clk), .douta(T10out), .addrb(T11), .clkb(clk), .doutb(T11out));
+    TableT1 tableT1_1(.addra(T12), .clka(clk), .douta(T12out), .addrb(T13), .clkb(clk), .doutb(T13out));
+    // Table T2 and T2'
+    TableT2 tableT2_0(.addra(T20), .clka(clk), .douta(T20out), .addrb(T21), .clkb(clk), .doutb(T21out));
+    TableT2 tableT2_1(.addra(T22), .clka(clk), .douta(T22out), .addrb(T23), .clkb(clk), .doutb(T23out));                             
+    // Table T3 and T3'
+    TableT3 tableT3_0(.addra(T30), .clka(clk), .douta(T30out), .addrb(T31), .clkb(clk), .doutb(T31out));
+    TableT3 tableT3_1(.addra(T32), .clka(clk), .douta(T32out), .addrb(T33), .clkb(clk), .doutb(T33out));             
+   
+   always @(posedge clk or posedge rst) begin
     if (rst) begin
-        roundCount <= 0;
+        roundKeyCounterAddr <= 0;
         valid <= 0;
         finalRound <= 0;
         cipher <= 0;
+        waitForMe <= 0;
         giveOutput <= 0;
         E0 <= 0;
         E1 <= 0;
@@ -147,33 +82,49 @@ always @(posedge clk or posedge rst) begin
         E3 <= 0;
     end
     else begin
-        if (roundCount == 0) begin
-            E0 <= plain[127:96] ^ roundKey[127:96];
-            E1 <= plain[95:64] ^ roundKey[95:64];
-            E2 <= plain[63:32] ^ roundKey[63:32];
-            E3 <= plain[31:0] ^ roundKey[31:0];
+        if (roundKeyCounterAddr == 0) begin
+            E0 <= plain[127:96] ^ key[127:96];
+            E1 <= plain[95:64] ^ key[95:64];
+            E2 <= plain[63:32] ^ key[63:32];
+            E3 <= plain[31:0] ^ key[31:0];
+                $display("Key %h", key);
+                $display("KeyCounter %b", roundKeyCounterAddr);
+                    $display("E0: %h", E0);
+                    $display("E1: %h", E1);
+                    $display("E2: %h", E2);
+                    $display("E3: %h", E3);           
         end
         
         if (waitForMe == 0) begin
-            roundCount <= roundCount + 1;
+            roundKeyCounterAddr <= roundKeyCounterAddr + 1;
             waitForMe <= 1;
             
-            if (roundCount == 9) begin
+            if (roundKeyCounterAddr == 9) begin
                 finalRound <= 1;
             end
             
-            if (roundCount == 10) begin
-                roundCount <= 0;
+            if (roundKeyCounterAddr == 10) begin
+                roundKeyCounterAddr <= 0;
                 giveOutput <= 1;
                 finalRound <= 0;
             end
             
-            if (roundCount > 0 && ~giveOutput) begin
-                E0 <= A0 ^ roundKey[127:96];
-                E1 <= A1 ^ roundKey[95:64];
-                E2 <= A2 ^ roundKey[63:32];
-                E3 <= A3 ^ roundKey[31:0];
-            end
+            if (roundKeyCounterAddr >= 1 && ~giveOutput) begin
+                E0 <= A0 ^ key[127:96];
+                E1 <= A1 ^ key[95:64];
+                E2 <= A2 ^ key[63:32];
+                E3 <= A3 ^ key[31:0];
+                $display("Key %h", key);
+                $display("KeyCounter %b", roundKeyCounterAddr);
+                    $display("A0_2: %h", A0);
+                    $display("A1_2: %h", A1);
+                    $display("A2_2: %h", A2);
+                    $display("A3_2: %h", A3);                  
+                    $display("E0_2: %h", E0);
+                    $display("E1_2: %h", E1);
+                    $display("E2_2: %h", E2);
+                    $display("E3_2: %h", E3);               
+            end                    
         end 
         else begin
             if (giveOutput == 1) begin
@@ -186,36 +137,38 @@ always @(posedge clk or posedge rst) begin
         end 
     end 
 end
-
-always_comb begin 
-    T00in = {finalRound, E0[31:24]};
-    T10in = {finalRound, E1[23:16]};
-    T20in = {finalRound, E2[15:8]};
-    T30in = {finalRound, E3[7:0]};
     
-    T01in = {finalRound, E1[31:24]};
-    T11in = {finalRound, E2[23:16]};
-    T21in = {finalRound, E3[15:8]};
-    T31in = {finalRound, E0[7:0]};
+    // 1/4 Round
+    assign T00 = {finalRound, E0[31:24]};
+    assign T10 = {finalRound, E1[23:16]};
+    assign T20 = {finalRound, E2[15:8]};
+    assign T30 = {finalRound, E3[7:0]};
     
-    T02in = {finalRound, E2[31:24]};
-    T12in = {finalRound, E3[23:16]};
-    T22in = {finalRound, E0[15:8]};
-    T32in = {finalRound, E1[7:0]};
+    // 2/4 Round
+    assign T01 = {finalRound, E1[31:24]};
+    assign T11 = {finalRound, E2[23:16]};
+    assign T21 = {finalRound, E3[15:8]};
+    assign T31 = {finalRound, E0[7:0]};    
     
-    T03in = {finalRound, E3[31:24]};
-    T13in = {finalRound, E0[23:16]};
-    T23in = {finalRound, E1[15:8]};
-    T33in = {finalRound, E2[7:0]};
+    // 3/4 Round
+    assign T02 = {finalRound, E2[31:24]};
+    assign T12 = {finalRound, E3[23:16]};
+    assign T22 = {finalRound, E0[15:8]};
+    assign T32 = {finalRound, E1[7:0]};
     
-    A0 = T00out^T10out^T20out^T30out;
-    A1 = T01out^T11out^T21out^T31out;
-    A2 = T02out^T12out^T22out^T32out;
-    A3 = T03out^T13out^T23out^T33out;
+     // 4/4 Round
+    assign T03 = {finalRound, E3[31:24]};
+    assign T13 = {finalRound, E0[23:16]};
+    assign T23 = {finalRound, E1[15:8]};
+    assign T33 = {finalRound, E2[7:0]};    
     
-    a0 = A0; a1 = A1; a2 = A2; a3 = A3;
-    e0 = E0; e1 = E1; e2 = E2; e3 = E3;
-        
-end
-
+    // XOR'ing the table output
+    assign A0 = T00out ^ T10out ^ T20out ^ T30out;
+    assign A1 = T01out ^ T11out ^ T21out ^ T31out;
+    assign A2 = T02out ^ T12out ^ T22out ^ T32out;
+    assign A3 = T03out ^ T13out ^ T23out ^ T33out;
+          
+       
+    
 endmodule
+

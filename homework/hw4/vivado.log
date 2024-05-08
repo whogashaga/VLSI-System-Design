@@ -1,0 +1,464 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon May  6 23:53:58 2024
+# Process ID: 12312
+# Current directory: C:/Users/coe_user/Documents/ECE574_Local/homework/hw4
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14112 C:\Users\coe_user\Documents\ECE574_Local\homework\hw4\assignment4.xpr
+# Log file: C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/vivado.log
+# Journal file: C:/Users/coe_user/Documents/ECE574_Local/homework/hw4\vivado.jou
+# Running On: coe-loan-008, OS: Windows, CPU Frequency: 2304 MHz, CPU Physical cores: 4, Host memory: 34040 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.6/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.7/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu1500/1.2/board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/2.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.6/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.7/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu110/1.4/board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.0/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.3/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.4/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu129/production/1.0/board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu1525/1.3/board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/production/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zc706/1.4/board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.3/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.4/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.2/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.vhdl'. Please regenerate to continue.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 1504.496 ; gain = 301.004
+update_compile_order -fileset sources_1
+archive_project C:/Users/coe_user/Documents/ECE574_Local/assignment4.xpr.zip -temp_dir C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008 -force -exclude_run_results -include_config_settings
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.2/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT0' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT1' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT3' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'TableT2' generated file not found 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.vhdl'. Please regenerate to continue.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [ProjectBase 1-495] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience any problem with archiving the project, please consider setting environment variable $TEMP to a shorter path.
+Current project path is 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_'.
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0.dcp' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0.dcp'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.v' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.v'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.vhdl' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.vhdl'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.v' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.v'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.vhdl' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.vhdl'
+INFO: [IP_Flow 19-7005] Skipping external file c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/BRAM-init-vectors_for_AES_T-table/TableT0_with final_round.coe
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1.dcp' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1.dcp'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.v' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.v'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.vhdl' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.vhdl'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.v' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.v'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.vhdl' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.vhdl'
+INFO: [IP_Flow 19-7005] Skipping external file c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/BRAM-init-vectors_for_AES_T-table/TableT1_with final_round.coe
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2.dcp' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2.dcp'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.v' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.v'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.vhdl' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.vhdl'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.v' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.v'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.vhdl' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.vhdl'
+INFO: [IP_Flow 19-7005] Skipping external file c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/BRAM-init-vectors_for_AES_T-table/TableT2_with final_round.coe
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3.dcp' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3.dcp'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.v' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.v'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.vhdl' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.vhdl'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.v' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.v'
+CRITICAL WARNING: [IP_Flow 19-4299] Failed to copy 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.vhdl' to 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.vhdl'
+INFO: [IP_Flow 19-7005] Skipping external file c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/BRAM-init-vectors_for_AES_T-table/TableT3_with final_round.coe
+INFO: [IP_Flow 19-7005] Skipping external file c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/BRAM-init-vectors_for_AES_T-table/fixedKeyschedule.coe
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.cache/ip 
+INFO: [Coretcl 2-135] resetting runs for excluding generated files from archive...
+INFO: [Coretcl 2-133] re-setting run 'synth_1'...
+INFO: [Coretcl 2-133] re-setting run 'TableT0_synth_1'...
+INFO: [Coretcl 2-133] re-setting run 'TableT1_synth_1'...
+INFO: [Coretcl 2-133] re-setting run 'TableT3_synth_1'...
+INFO: [Coretcl 2-133] re-setting run 'TableT2_synth_1'...
+WARNING: [Coretcl 2-105] Run 'fixedKeySchedule_synth_1' is currently active
+INFO: [Coretcl 2-133] re-setting run 'fixedKeySchedule_synth_1'...
+INFO: [Coretcl 2-133] re-setting run 'impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'TableT0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'TableT1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'TableT3_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'TableT2_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'fixedKeySchedule_impl_1'...
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0.dcp' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0_stub.vhdl' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT0/TableT0_sim_netlist.vhdl' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1.dcp' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1_stub.vhdl' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT1/TableT1_sim_netlist.vhdl' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2.dcp' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2_stub.vhdl' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT2/TableT2_sim_netlist.vhdl' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3.dcp' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3_stub.vhdl' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/coe_user/Documents/ECE574_Local/homework/hw4/.Xil/Vivado-12312-coe-loan-008/PrjAr/_X_/assignment4.gen/sources_1/ip/TableT3/TableT3_sim_netlist.vhdl' does not exist
+INFO: [Coretcl 2-1212] Importing remotely added design sources and verilog include files (if any)...
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'TableT0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'TableT0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'TableT1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'TableT1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'TableT2'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'TableT2'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'TableT3'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'TableT3'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'fixedKeySchedule'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'fixedKeySchedule'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'sim_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sim_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'
+INFO: [Coretcl 2-1209] Adding archive summary file to the project...
+INFO: [Coretcl 2-1214] Preparing project files for archive...
+INFO: [Coretcl 2-1210] Compressing project files and data...
+INFO: [Coretcl 2-1215] Project archived (C:/Users/coe_user/Documents/ECE574_Local/assignment4.xpr.zip)
+INFO: [Coretcl 2-1216] To view the archive summary log in GUI, double click on 'Design Sources->Text->archive_project_summary.txt', or open this file from the archived project directory.
+archive_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1512.500 ; gain = 8.004
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_AES'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2023.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_AES' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/TableT0.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/TableT0_with final_round.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/TableT1.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/TableT1_with final_round.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/TableT2.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/TableT2_with final_round.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/TableT3.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/TableT3_with final_round.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/fixedKeySchedule.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim/fixedKeyschedule.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_AES_vlog.prj"
+ECHO is off.
+ECHO is off.
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1537.867 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '6' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_7 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_AES_behav xil_defaultlib.tb_AES xil_defaultlib.glbl -log elaborate.log"
+ECHO is off.
+ECHO is off.
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_7 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_AES_behav xil_defaultlib.tb_AES xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1537.867 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_AES_behav -key {Behavioral:sim_1:Functional:tb_AES} -tclbatch {tb_AES.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_AES.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.keySchedule.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.tableT0_0.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.tableT0_1.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.tableT1_0.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.tableT1_1.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.tableT2_0.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.tableT2_1.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.tableT3_0.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_AES.uut.tableT3_1.inst.\native_mem_module.blk_mem_gen_v8_4_7_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Key 000102030405060708090a0b0c0d0e0f
+KeyCounter 0000
+E0: 00000000
+E1: 00000000
+E2: 00000000
+E3: 00000000
+Key d6aa74fdd2af72fadaa678f1d6ab76fe
+KeyCounter 0001
+A0_2: 6379e6d9
+A1_2: f467fb76
+A2_2: ad063cf4
+A3_2: d2eb8aa3
+E0_2: 00112233
+E1_2: 44556677
+E2_2: 8899aabb
+E3_2: ccddeeff
+Key b692cf0b643dbdf1be9bc5006830b3fe
+KeyCounter 0010
+A0_2: c57fdf0f
+A1_2: 48d1363e
+A2_2: c152ce8a
+A3_2: 99a77c1a
+E0_2: b5d39224
+E1_2: 26c8898c
+E2_2: 77a04405
+E3_2: 0440fc5d
+Key b6ff744ed2c2c9bf6c590cbf0469bf41
+KeyCounter 0011
+A0_2: 0e1cacbd
+A1_2: e6a7ae3b
+A2_2: 7c165020
+A3_2: e5320c6c
+E0_2: 73ed1004
+E1_2: 2cec8bcf
+E2_2: 7fc90b8a
+E3_2: f197cfe4
+Key 47f7f7bc95353e03f96c32bcfd058dfd
+KeyCounter 0100
+A0_2: 9df0c618
+A1_2: c7b151db
+A2_2: fa44d0a3
+A3_2: 86958e2a
+E0_2: b8e3d8f3
+E1_2: 34656784
+E2_2: 104f5c9f
+E3_2: e15bb32d
+Key 3caaa3e8a99f9deb50f3af57adf622aa
+KeyCounter 0101
+A0_2: d9543122
+A1_2: 6eac19dd
+A2_2: f0882de8
+A3_2: 7e93f495
+E0_2: da0731a4
+E1_2: 52846fd8
+E2_2: 0328e21f
+E3_2: 7b9003d7
+Key 5e390f7df7a69296a7553dc10aa31f6b
+KeyCounter 0110
+A0_2: 9104a34a
+A1_2: 76f18c6e
+A2_2: 46ae3c33
+A3_2: 4de27b5e
+E0_2: e5fe92ca
+E1_2: c7338436
+E2_2: a07b82bf
+E3_2: d365d63f
+Key 14f9701ae35fe28c440adf4d4ea9c026
+KeyCounter 0111
+A0_2: 082e8895
+A1_2: d04d3077
+A2_2: a50c8183
+A3_2: c9f1e3a7
+E0_2: cf3dac37
+E1_2: 81571ef8
+E2_2: e1fb01f2
+E3_2: 47416435
+Key 47438735a41c65b9e016baf4aebf7ad2
+KeyCounter 1000
+A0_2: 37f1f136
+A1_2: 790475f1
+A2_2: 1be00126
+A3_2: 0244ee8f
+E0_2: 1cd7f88f
+E1_2: 3312d2fb
+E2_2: e1065ece
+E3_2: 87582381
+Key 549932d1f08557681093ed9cbe2c974e
+KeyCounter 1001
+A0_2: e879e72c
+A1_2: 06584ace
+A2_2: 650b8682
+A3_2: 1f0fed24
+E0_2: 70b27603
+E1_2: dd181048
+E2_2: fbf6bbd2
+E3_2: acfb945d
+Key 13111d7fe3944a17f307a78b4d2b30c5
+KeyCounter 1010
+A0_2: 65c17f02
+A1_2: 4246da54
+A2_2: 9d260324
+A3_2: 32e1a472
+E0_2: bce0d5fd
+E1_2: f6dd1da6
+E2_2: 75986b1e
+E3_2: a1237a6a
+Key 13111d7fe3944a17f307a78b4d2b30c5
+KeyCounter 0000
+E0: 76d0627d
+E1: a1d29043
+E2: 6e21a4af
+E3: 7fca94b7
+Key 000102030405060708090a0b0c0d0e0f
+KeyCounter 0000
+E0: 13013d4f
+E1: a3c42a67
+E2: 7397073b
+E3: 8dfbd035
+Key d6aa74fdd2af72fadaa678f1d6ab76fe
+KeyCounter 0001
+A0_2: 6379e6d9
+A1_2: f467fb76
+A2_2: ad063cf4
+A3_2: d2eb8aa3
+E0_2: 00112233
+E1_2: 44556677
+E2_2: 8899aabb
+E3_2: ccddeeff
+Key b692cf0b643dbdf1be9bc5006830b3fe
+KeyCounter 0010
+A0_2: c57fdf0f
+A1_2: 48d1363e
+A2_2: c152ce8a
+A3_2: 99a77c1a
+E0_2: b5d39224
+E1_2: 26c8898c
+E2_2: 77a04405
+E3_2: 0440fc5d
+Key b6ff744ed2c2c9bf6c590cbf0469bf41
+KeyCounter 0011
+A0_2: 0e1cacbd
+A1_2: e6a7ae3b
+A2_2: 7c165020
+A3_2: e5320c6c
+E0_2: 73ed1004
+E1_2: 2cec8bcf
+E2_2: 7fc90b8a
+E3_2: f197cfe4
+Key 47f7f7bc95353e03f96c32bcfd058dfd
+KeyCounter 0100
+A0_2: 9df0c618
+A1_2: c7b151db
+A2_2: fa44d0a3
+A3_2: 86958e2a
+E0_2: b8e3d8f3
+E1_2: 34656784
+E2_2: 104f5c9f
+E3_2: e15bb32d
+$finish called at time : 470 ns : File "C:/Users/coe_user/Documents/ECE574_Local/homework/hw4/assignment4.srcs/sim_1/new/tb_AES.sv" Line 54
+xsim: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 1555.809 ; gain = 17.941
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_AES_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1555.809 ; gain = 17.941

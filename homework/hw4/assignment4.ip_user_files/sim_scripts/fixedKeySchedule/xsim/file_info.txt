@@ -1,2 +1,0 @@
-fixedKeySchedule.v,verilog,xil_defaultlib,../../../../assignment4.gen/sources_1/ip/fixedKeySchedule/sim/fixedKeySchedule.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v

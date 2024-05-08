@@ -56,7 +56,6 @@
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 fixedKeySchedule your_instance_name (
   .clka(clka),    // input wire clka
-  .ena(ena),      // input wire ena
   .addra(addra),  // input wire [3 : 0] addra
   .douta(douta)  // output wire [127 : 0] douta
 );

@@ -54,7 +54,6 @@
 COMPONENT fixedKeySchedule
   PORT (
     clka : IN STD_LOGIC;
-    ena : IN STD_LOGIC;
     addra : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     douta : OUT STD_LOGIC_VECTOR(127 DOWNTO 0) 
   );
@@ -68,7 +67,6 @@ END COMPONENT;
 your_instance_name : fixedKeySchedule
   PORT MAP (
     clka => clka,
-    ena => ena,
     addra => addra,
     douta => douta
   );
