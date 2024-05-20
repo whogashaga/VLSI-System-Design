@@ -2,5 +2,3 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/coe_user/Documents/E
 INFO: [VRFC 10-311] analyzing module asyncfifo
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/coe_user/Documents/ECE574_Local/homework/hw6/assignment6.srcs/sim_1/new/asyncfifo_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module asyncfifo_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/coe_user/Documents/ECE574_Local/homework/hw6/assignment6.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

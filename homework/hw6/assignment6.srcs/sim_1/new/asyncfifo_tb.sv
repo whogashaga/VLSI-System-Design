@@ -22,7 +22,7 @@
 
 module asyncfifo_tb();
 
-    parameter ADDR_WIDTH = 4  ;
+    parameter ADDR_WIDTH = 4;
     parameter DATA_WIDTH = 32;
     
     parameter CLK_WR = 10;
@@ -76,7 +76,40 @@ module asyncfifo_tb();
         rd_resetn <= 1;
         
         // testbench
+        // write data until FIFO is full
+        repeat ((1 << ADDR_WIDTH)) begin
+            @(posedge wr_clk);
+            wr_req <= 1;
+            data_in <= data_in + 1;
+        end
         
+        // stop writing
+        @(posedge wr_clk);
+        wr_req <= 0;
+        
+        
+        // check if FIFO is full
+        if (wr_full)
+            $display("FIFO full flag is asserted correctly.");
+        else 
+        // testbench
+            $display("FIFO full flag is not asserted when FIFO is full.");
+        // Reset read pointer
+        @(posedge rd_clk);
+        rd_req <= 1;
+        repeat ((1 << ADDR_WIDTH)) begin
+            @(posedge rd_clk);
+        end
+        @(posedge rd_clk);
+        rd_req <= 0;
+        // Check if FIFO is empty
+        if (rd_empty)
+            $display("FIFO empty flag is asserted correctly.");
+        else
+            $display("FIFO empty flag is not asserted when FIFO is empty.");
+        // Verify binary to gray code conversion
+        $display("Binary to gray code conversion test:");
+        $monitor("Binary: %b, Gray: %b", uut.wr_write_ptr, uut.wr_write_ptr_gray);
         
         repeat (1000) @(posedge wr_clk);
         #1000;

@@ -28,12 +28,12 @@ module asyncfifo #(
     input wr_clk_i,
     input wr_req_i,
     input wr_resetn_i,
-    output wr_full_o,
+    output reg wr_full_o,
     
     input rd_clk_i,
     input rd_req_i,
     input rd_resetn_i,
-    output rd_empty_o,
+    output reg rd_empty_o,
     output reg [DATA_WIDTH - 1 : 0] data_o
     );
     
@@ -43,11 +43,11 @@ module asyncfifo #(
     
     reg [ADDR_WIDTH:0] wr_write_ptr;
     reg [ADDR_WIDTH:0] wr_write_ptr_gray;
-    reg [ADDR_WIDTH:0] wr_read_ptr_gray;
+    reg [ADDR_WIDTH:0] wr_read_ptr_gray;    // read pointer in write clock domain
     
     reg [ADDR_WIDTH:0] rd_read_ptr;
     reg [ADDR_WIDTH:0] rd_read_ptr_gray;
-    reg [ADDR_WIDTH:0] rd_write_ptr_gray;
+    reg [ADDR_WIDTH:0] rd_write_ptr_gray;   // write pointer in read clock domain
     
     reg [ADDR_WIDTH:0] sync_w2r;
     reg [ADDR_WIDTH:0] sync_r2w;
@@ -56,7 +56,7 @@ module asyncfifo #(
     function [ADDR_WIDTH:0] gray_conv;
     input [ADDR_WIDTH:0] in;
     begin
-        gray_conv = {in[ADDR_WIDTH], in[ADDR_WIDTH-1:0] ^ in[ADDR_WIDTH:1]};
+        gray_conv = {in[ADDR_WIDTH], in[ADDR_WIDTH-1:0] ^ in[ADDR_WIDTH:1]}; // XOR with data is shift by 1 bit.
     end
     endfunction
     
@@ -65,7 +65,10 @@ module asyncfifo #(
     begin
         if(~wr_resetn_i)
         begin
-            { wr_read_ptr_gray, sync_r2w } <= 0;
+            // just cleaner coding style, equals to
+            //  wr_read_ptr_gray <= 0;
+            //  sync_r2w <= 0;
+            { wr_read_ptr_gray, sync_r2w } <= 0;    
         end
         else
         begin
@@ -73,12 +76,12 @@ module asyncfifo #(
         end
     end
     
-    // synchronizing the read pointer in the read clock domain
+    // synchronizing the write pointer in the read clock domain
     always @(posedge rd_clk_i or negedge rd_resetn_i)
     begin
         if(~rd_resetn_i)
         begin
-            { rd_read_ptr_gray, sync_w2r } <= 0;
+            { rd_read_ptr_gray, sync_w2r } <= 0;    
         end
         else
         begin
@@ -86,24 +89,50 @@ module asyncfifo #(
         end
     end
     
-    reg [ADDR_WIDTH:0] temp_bin;
-    reg [ADDR_WIDTH:0] temp_gray;
+    // write operation
+    always @(posedge wr_clk_i or negedge wr_resetn_i)
+    begin
+        if (~wr_resetn_i)
+        begin
+            wr_write_ptr <= 0;
+            wr_write_ptr_gray <= 0;
+            wr_full_o <= 1'b0;
+        end
+        else if (wr_req_i && !wr_full_o)
+        begin
+            mem[wr_write_ptr[ADDR_WIDTH-1:0]] <= data_i;
+            wr_write_ptr <= wr_write_ptr + 1;
+            wr_write_ptr_gray <= gray_conv(wr_write_ptr + 1);
+        end
+        
+        // generate Full Flag
+        if (wr_resetn_i)
+        begin
+            wr_full_o <= (wr_write_ptr_gray == {~wr_read_ptr_gray[ADDR_WIDTH:ADDR_WIDTH-1], wr_read_ptr_gray[ADDR_WIDTH-2:0]});
+        end
+    end
     
+    // read operation
     always @(posedge rd_clk_i or negedge rd_resetn_i)
     begin
-        if(~rd_resetn_i)
+        if (~rd_resetn_i)
         begin
-            temp_bin <= 0;
-            temp_gray <= 0;
+            rd_read_ptr <= 0;
+            rd_read_ptr_gray <= 0;
+            data_o <= 0;
+            rd_empty_o <= 1'b1;
         end
-        else
+        else if (rd_req_i && !rd_empty_o)
         begin
-//           if(request high) // fill in request signal
-//           begin
-//            temp_bin <= temp_bin + 1;
-//            temp_gray <= gray_conv(temp_bin + 1);
-//           end
-           
+            data_o <= mem[rd_read_ptr[ADDR_WIDTH-1:0]];
+            rd_read_ptr <= rd_read_ptr + 1;
+            rd_read_ptr_gray <= gray_conv(rd_read_ptr + 1);
+        end
+        
+        // generate Empty Flag 
+        if (rd_resetn_i)
+        begin
+            rd_empty_o <= (rd_read_ptr_gray == wr_read_ptr_gray);
         end
     end
     
