@@ -53,7 +53,6 @@
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
 COMPONENT mult_32
   PORT (
-    CLK : IN STD_LOGIC;
     A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     P : OUT STD_LOGIC_VECTOR(63 DOWNTO 0) 
@@ -67,7 +66,6 @@ END COMPONENT;
 ------------- Begin Cut here for INSTANTIATION Template ----- INST_TAG
 your_instance_name : mult_32
   PORT MAP (
-    CLK => CLK,
     A => A,
     B => B,
     P => P

@@ -23,9 +23,9 @@
         "OutputWidthLow": [ { "value": "0", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "UseRounding": [ { "value": "false", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
         "RoundPoint": [ { "value": "0", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
-        "PipeStages": [ { "value": "1", "resolve_type": "user", "usage": "all" } ],
-        "ClockEnable": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
-        "SyncClear": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+        "PipeStages": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+        "ClockEnable": [ { "value": "false", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
+        "SyncClear": [ { "value": "false", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
         "SclrCePriority": [ { "value": "SCLR_Overrides_CE", "resolve_type": "user", "enabled": false, "usage": "all" } ],
         "ZeroDetect": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ]
       },
@@ -36,7 +36,7 @@
         "C_XDEVICEFAMILY": [ { "value": "artix7", "resolve_type": "generated", "usage": "all" } ],
         "C_HAS_CE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_SCLR": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_LATENCY": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_LATENCY": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_A_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_A_TYPE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_B_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
@@ -77,7 +77,6 @@
     },
     "boundary": {
       "ports": {
-        "CLK": [ { "direction": "in", "driver_value": "0x1" } ],
         "A": [ { "direction": "in", "size_left": "31", "size_right": "0", "driver_value": "0" } ],
         "B": [ { "direction": "in", "size_left": "31", "size_right": "0", "driver_value": "0" } ],
         "P": [ { "direction": "out", "size_left": "63", "size_right": "0", "driver_value": "0" } ]
@@ -108,9 +107,6 @@
             "CLK_DOMAIN": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_PORT": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
-          },
-          "port_maps": {
-            "CLK": [ { "physical_name": "CLK" } ]
           }
         },
         "sclr_intf": {

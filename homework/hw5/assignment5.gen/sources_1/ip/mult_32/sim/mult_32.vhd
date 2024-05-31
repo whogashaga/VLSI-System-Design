@@ -58,7 +58,6 @@ USE mult_gen_v12_0_19.mult_gen_v12_0_19;
 
 ENTITY mult_32 IS
   PORT (
-    CLK : IN STD_LOGIC;
     A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     P : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
@@ -106,8 +105,6 @@ ARCHITECTURE mult_32_arch OF mult_32 IS
   ATTRIBUTE X_INTERFACE_INFO OF A: SIGNAL IS "xilinx.com:signal:data:1.0 a_intf DATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF B: SIGNAL IS "XIL_INTERFACENAME b_intf, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF B: SIGNAL IS "xilinx.com:signal:data:1.0 b_intf DATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF CLK: SIGNAL IS "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF p_intf:b_intf:a_intf, ASSOCIATED_RESET sclr, ASSOCIATED_CLKEN ce, FREQ_HZ 10000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 clk_intf CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF P: SIGNAL IS "XIL_INTERFACENAME p_intf, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF P: SIGNAL IS "xilinx.com:signal:data:1.0 p_intf DATA";
 BEGIN
@@ -119,7 +116,7 @@ BEGIN
       C_XDEVICEFAMILY => "artix7",
       C_HAS_CE => 0,
       C_HAS_SCLR => 0,
-      C_LATENCY => 1,
+      C_LATENCY => 0,
       C_A_WIDTH => 32,
       C_A_TYPE => 0,
       C_B_WIDTH => 32,
@@ -135,7 +132,7 @@ BEGIN
       C_ROUND_PT => 0
     )
     PORT MAP (
-      CLK => CLK,
+      CLK => '1',
       A => A,
       B => B,
       CE => '1',

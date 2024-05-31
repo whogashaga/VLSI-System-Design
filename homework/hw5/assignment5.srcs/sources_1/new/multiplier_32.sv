@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 05/20/2024 10:28:00 AM
+// Create Date: 05/23/2024 10:34:52 PM
 // Design Name: 
 // Module Name: multiplier_32
 // Project Name: 
@@ -21,125 +21,100 @@
 
 
 module multiplier_32(
-    input logic clk,
-    input logic reset,
-    input logic start,
-    input logic [31:0] multiplicand,
-    input logic [31:0] multiplier,
-    output logic [63:0] product,
-    output logic done
-);
-
-    logic [31:0] multiplicand_reg, multiplier_reg;
-    logic [63:0] product_reg;
-    logic [5:0] count; // 6-bit counter for 32 shifts
-    logic shift, load, add, done_reg;
-    
-    DSP48E1 #(
-        // Set the parameters as per your requirements
-    ) dsp_inst (
-        .A(multiplicand_reg), // 25-bit input
-        .B(multiplier_reg),   // 18-bit input
-        .P(product_reg)       // 48-bit output
-        // Connect other necessary ports
-    );
-    
-    mult_32 your_instance_name (
-      .CLK(CLK),  // input wire CLK
-      .A(A),      // input wire [31 : 0] A
-      .B(B),      // input wire [31 : 0] B
-      .P(P)      // output wire [63 : 0] P
+    input [31:0] a_in,
+    input [31:0] b_in,
+    input start_i,
+    input clk_i,
+    input resetn_i,
+    output reg [63:0] product_o,
+    output reg done_o
     );
 
-    typedef enum logic [2:0] {
-        IDLE,
-        LOAD,
-        SHIFT_ADD,
-        DONE
+    // Internal registers
+    reg [31:0] multiplicand_reg;
+    reg [31:0] prod_reg_high;
+    reg [31:0] prod_reg_low;
+    wire [31:0] reg_a;
+
+    // Control signals
+    wire multiplier_bit0;
+    wire prod_reg_shift_rt;
+    wire prod_reg_ld_high;
+
+    // Counter for shifts
+    reg [5:0] count;
+    // State machine states
+    typedef enum logic [1:0] {
+        IDLE  = 2'b00,
+        CHECK = 2'b01,
+        ADD   = 2'b10,
+        SHIFT = 2'b11
     } state_t;
-    state_t state, next_state;
 
+    // current_state and next_state
+    state_t cs, ns;
 
-        always_ff @(posedge clk or posedge reset) begin
-        if (reset)
-            state <= IDLE;
-        else
-            state <= next_state;
-    end
+    // product_o is just concatenation of high/low regs
+    assign product_o = {prod_reg_high, prod_reg_low};
 
-    always_comb begin
-        case (state)
-            IDLE: 
-                if (start) 
-                    next_state = LOAD;
-                else 
-                    next_state = IDLE;
-            LOAD: 
-                next_state = SHIFT_ADD;
-            SHIFT_ADD: 
-                if (count == 32) 
-                    next_state = DONE;
-                else 
-                    next_state = SHIFT_ADD;
-            DONE: 
-                next_state = IDLE;
-            default: 
-                next_state = IDLE;
-        endcase
-    end
+    // reg_a is the output of the mux
+    assign reg_a = start_i ? 32'h0 : multiplicand_reg + prod_reg_high;
 
-    always_comb begin
-        shift = 0;
-        load = 0;
-        add = 0;
-        done_reg = 0;
+    // multiplier_bit0 is LSB of prod_reg_low
+    assign multiplier_bit0 = prod_reg_low[0];
 
-        case (state)
-            IDLE: begin
-                done_reg = 1;
-            end
-            LOAD: begin
-                load = 1;
-            end
-            SHIFT_ADD: begin
-                shift = 1;
-                add = (multiplier_reg[0] == 1);
-            end
-            DONE: begin
-                done_reg = 1;
-            end
-        endcase
-    end
-
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            multiplicand_reg <= 0;
-            multiplier_reg <= 0;
-            product_reg <= 0;
+    // State machine and counter logic
+    always_ff @(posedge clk_i or negedge resetn_i) begin
+        if (~resetn_i) begin
+            cs <= IDLE;
             count <= 0;
-            product <= 0;
-            done <= 0;
+            done_o <= 0;
         end else begin
-            if (load) begin
-                multiplicand_reg <= multiplicand;
-                multiplier_reg <= multiplier;
-                product_reg <= 0;
-                count <= 0;
-            end else if (shift) begin
-                if (add) 
-                    product_reg <= product_reg + {32'b0, multiplicand_reg};
-                product_reg <= product_reg >> 1;
-                multiplier_reg <= multiplier_reg >> 1;
-                count <= count + 1;
-            end
-            if (state == DONE) begin
-                product <= product_reg;
-                done <= 1;
-            end else begin
-                done <= 0;
-            end
+            cs <= ns;
+            if (cs == IDLE) count <= 0;
+            else if (cs == SHIFT) count <= count + 1;
+            done_o <= (cs == CHECK && count >= 32);
         end
     end
 
+    // Next state logic
+    always_comb begin
+        case (cs)
+            IDLE:   if (start_i)                   ns = CHECK;
+                    else                         ns = IDLE;
 
+            CHECK:  if (count >= 32)             ns = IDLE;
+                    else if (multiplier_bit0)    ns = ADD;
+                    else                         ns = SHIFT;
+
+            ADD:                                 ns = SHIFT;
+
+            SHIFT:                               ns = CHECK;
+
+            default:                             ns = IDLE;
+        endcase
+    end
+
+    assign prod_reg_ld_high = (start_i || cs == ADD);
+    assign prod_reg_shift_rt = (cs == SHIFT);
+
+    // multiplicand_reg
+    always_ff @(posedge clk_i or negedge resetn_i) begin
+        if (~resetn_i)       multiplicand_reg <= 0;
+        else if (start_i)     multiplicand_reg <= a_in;
+    end
+
+    // prod_reg_high
+    always_ff @(posedge clk_i or negedge resetn_i) begin
+        if (~resetn_i)               prod_reg_high <= 0;
+        else if (prod_reg_ld_high)  prod_reg_high <= reg_a;
+        else if (prod_reg_shift_rt) prod_reg_high <= prod_reg_high >> 1;
+    end
+
+    // prod_reg_low
+    always_ff @(posedge clk_i or negedge resetn_i) begin
+        if (~resetn_i)               prod_reg_low <= 0;
+        else if (start_i)             prod_reg_low <= b_in;
+        else if (prod_reg_shift_rt) prod_reg_low <= {prod_reg_high[0], prod_reg_low} >> 1;
+    end
 endmodule

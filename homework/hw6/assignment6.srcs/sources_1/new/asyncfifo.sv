@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
 // Create Date: 05/10/2024 02:34:01 PM
-// Design Name: 
+// Design Name: asyncfifo.sv
 // Module Name: asyncfifo
-// Project Name: 
+// Project Name: Assignment 6
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: The Asynchronized FIFO between different Clock Domain.
 // 
 // Dependencies: 
 // 
@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module asyncfifo #(
     parameter DATA_WIDTH = 32,
     parameter ADDR_WIDTH = 4)
@@ -28,15 +27,14 @@ module asyncfifo #(
     input wr_clk_i,
     input wr_req_i,
     input wr_resetn_i,
-    output reg wr_full_o,
+    output wire wr_full_o,
     
     input rd_clk_i,
     input rd_req_i,
     input rd_resetn_i,
-    output reg rd_empty_o,
+    output wire rd_empty_o,
     output reg [DATA_WIDTH - 1 : 0] data_o
     );
-    
     
     
     reg [DATA_WIDTH - 1 : 0] mem [(1 << ADDR_WIDTH) - 1 :0];
@@ -81,11 +79,11 @@ module asyncfifo #(
     begin
         if(~rd_resetn_i)
         begin
-            { rd_read_ptr_gray, sync_w2r } <= 0;    
+            { rd_write_ptr_gray, sync_w2r } <= 0;    
         end
         else
         begin
-            { rd_read_ptr_gray, sync_w2r } <= { sync_w2r, wr_read_ptr_gray };
+            { rd_write_ptr_gray, sync_w2r } <= { sync_w2r, wr_write_ptr_gray };
         end
     end
     
@@ -96,19 +94,12 @@ module asyncfifo #(
         begin
             wr_write_ptr <= 0;
             wr_write_ptr_gray <= 0;
-            wr_full_o <= 1'b0;
         end
         else if (wr_req_i && !wr_full_o)
         begin
-            mem[wr_write_ptr[ADDR_WIDTH-1:0]] <= data_i;
             wr_write_ptr <= wr_write_ptr + 1;
-            wr_write_ptr_gray <= gray_conv(wr_write_ptr + 1);
-        end
-        
-        // generate Full Flag
-        if (wr_resetn_i)
-        begin
-            wr_full_o <= (wr_write_ptr_gray == {~wr_read_ptr_gray[ADDR_WIDTH:ADDR_WIDTH-1], wr_read_ptr_gray[ADDR_WIDTH-2:0]});
+            mem[wr_write_ptr] <= data_i;
+            wr_write_ptr_gray <= gray_conv(wr_write_ptr);
         end
     end
     
@@ -120,20 +111,18 @@ module asyncfifo #(
             rd_read_ptr <= 0;
             rd_read_ptr_gray <= 0;
             data_o <= 0;
-            rd_empty_o <= 1'b1;
         end
         else if (rd_req_i && !rd_empty_o)
         begin
-            data_o <= mem[rd_read_ptr[ADDR_WIDTH-1:0]];
+            data_o <= mem[rd_read_ptr];
+            rd_read_ptr_gray <= gray_conv(rd_read_ptr);
             rd_read_ptr <= rd_read_ptr + 1;
-            rd_read_ptr_gray <= gray_conv(rd_read_ptr + 1);
-        end
-        
-        // generate Empty Flag 
-        if (rd_resetn_i)
-        begin
-            rd_empty_o <= (rd_read_ptr_gray == wr_read_ptr_gray);
         end
     end
+    
+    // Full Flag
+    assign wr_full_o = (wr_write_ptr_gray == {~wr_read_ptr_gray[ADDR_WIDTH:ADDR_WIDTH-1], wr_read_ptr_gray[ADDR_WIDTH-2:0]});
+    // Empty Flag
+    assign rd_empty_o = (rd_write_ptr_gray == rd_read_ptr_gray);
     
 endmodule

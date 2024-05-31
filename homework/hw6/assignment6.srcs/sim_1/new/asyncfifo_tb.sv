@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
 // Create Date: 05/10/2024 03:04:41 PM
-// Design Name: 
+// Design Name: asyncfifo_tb.sv
 // Module Name: asyncfifo_tb
-// Project Name: 
+// Project Name: Assignment 6
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: The testbench file for the design asyncfifo_tb.sv
 // 
 // Dependencies: 
 // 
@@ -69,50 +69,60 @@ module asyncfifo_tb();
         rd_req    <= 0;
         rd_resetn <= 0;
         
-        repeat (10) @(posedge wr_clk);
-        wr_resetn <= 1;
+        resetWrAndRd();
         
-        repeat (10) @(posedge rd_clk);
-        rd_resetn <= 1;
+        // 1. Verify correct Binary to Gray code conversion.
+        for (integer i = 0; i < (1 << (ADDR_WIDTH+1)); i = i + 1) begin
+            $monitor("Binary: %b, Gray: %b", uut.wr_write_ptr, uut.wr_write_ptr_gray);
+        end
+    
+        // 2. Check that the FIFO full status flag is asserted when FIFO becomes full.
+        resetWrAndRd();
+        wr_req <= 1;
         
-        // testbench
-        // write data until FIFO is full
-        repeat ((1 << ADDR_WIDTH)) begin
+        for (integer i = 0; i < (1 << ADDR_WIDTH); i = i + 1) begin
+            data_in <= i;
             @(posedge wr_clk);
-            wr_req <= 1;
-            data_in <= data_in + 1;
         end
         
-        // stop writing
-        @(posedge wr_clk);
+        // after mem is full, still need one wr req to trigger the flag.
+        repeat (1) @(posedge wr_clk);
         wr_req <= 0;
+        if (wr_full == 1) begin
+            $display("Full Flag is asserted!");
+        end else begin
+            $display("Full Flag is not asserted");
+        end
         
-        
-        // check if FIFO is full
-        if (wr_full)
-            $display("FIFO full flag is asserted correctly.");
-        else 
-        // testbench
-            $display("FIFO full flag is not asserted when FIFO is full.");
-        // Reset read pointer
-        @(posedge rd_clk);
+        // 3. Check that the FIFO empty flag is asserted when FIFO becomes empty
         rd_req <= 1;
-        repeat ((1 << ADDR_WIDTH)) begin
+        for (integer i = 0; i < (1 << ADDR_WIDTH); i = i + 1) begin
             @(posedge rd_clk);
         end
-        @(posedge rd_clk);
+        
         rd_req <= 0;
-        // Check if FIFO is empty
-        if (rd_empty)
-            $display("FIFO empty flag is asserted correctly.");
-        else
-            $display("FIFO empty flag is not asserted when FIFO is empty.");
-        // Verify binary to gray code conversion
-        $display("Binary to gray code conversion test:");
-        $monitor("Binary: %b, Gray: %b", uut.wr_write_ptr, uut.wr_write_ptr_gray);
+        if (rd_empty == 1) begin
+            $display("Empty flag is asserted!");
+        end else begin
+            $display("Empty flag is not asserted!");
+        end
+        
         
         repeat (1000) @(posedge wr_clk);
         #1000;
     end
    
+   
+   task resetWrAndRd();
+        repeat (2) @(posedge wr_clk);
+        wr_resetn <= 0;
+        repeat (2) @(posedge rd_clk);
+        rd_resetn <= 0;
+        
+        repeat (2) @(posedge wr_clk);
+        wr_resetn <= 1;
+        repeat (2) @(posedge rd_clk);
+        rd_resetn <= 1;
+        #(CLK_WR*CLK_RD);
+   endtask
 endmodule

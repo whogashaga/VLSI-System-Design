@@ -1,0 +1,4 @@
+Running: xsim.dir/tb_multiplier_32_dsp_behav/xsimk.exe -simmode gui -wdb tb_multiplier_32_dsp_behav.wdb -simrunnum 0 -socket 7678
+Design successfully loaded
+Design Loading Memory Usage: 8752 KB (Peak: 8752 KB)
+Design Loading CPU Usage: 0 ms

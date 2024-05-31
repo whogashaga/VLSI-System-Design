@@ -1,0 +1,21 @@
+Time resolution is 1 ps
+Binary: 00000, Gray: 00000
+Binary: 00001, Gray: 00000
+Binary: 00010, Gray: 00001
+Binary: 00011, Gray: 00011
+Binary: 00100, Gray: 00010
+Binary: 00101, Gray: 00110
+Binary: 00110, Gray: 00111
+Binary: 00111, Gray: 00101
+Binary: 01000, Gray: 00100
+Binary: 01001, Gray: 01100
+Binary: 01010, Gray: 01101
+Binary: 01011, Gray: 01111
+Binary: 01100, Gray: 01110
+Binary: 01101, Gray: 01010
+Binary: 01110, Gray: 01011
+Binary: 01111, Gray: 01001
+Binary: 10000, Gray: 01000
+Full Flag is not asserted
+Binary: 10001, Gray: 11000
+Empty flag is not asserted!
