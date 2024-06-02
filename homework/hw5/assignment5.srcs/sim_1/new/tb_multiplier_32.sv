@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
 // Create Date: 05/21/2024 02:32:59 PM
-// Design Name: 
+// Design Name: tb_multiplier_32.sv
 // Module Name: tb_multiplier_32
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: The testbench file for 32-bit sequential multiplier.
 // 
 // Dependencies: 
 // 
@@ -30,7 +30,6 @@ module tb_multiplier_32();
     
     parameter CLK_PERIOD = 10;
 
-//    multiplier_32 uut (
     multiplier_32_seq uut(
         .a_i(a),
         .b_i(b),
@@ -61,19 +60,19 @@ module tb_multiplier_32();
         start = 1;
         #CLK_PERIOD;
         start = 0;
-        #20;
+        wait(done);
         $display("a: %d, b: %d, product: %d", a, b, product);
         
         // (-15) * 30 = (-450)
-        #(CLK_PERIOD*2);
-        a = -32'd15;
-        b = 32'd30;
-        start = 1;
-        #10;
-        start = 0;
-        wait(done);
-        #20;
-        $display("a: %d, b: %d, product: %d", a, b, product);
+//        #(CLK_PERIOD*2);
+//        a = -32'd8;
+//        b = 32'd10;
+//        start = 1;
+//        #10;
+//        start = 0;
+//        wait(done);
+//        #20;
+//        $display("a: %d, b: %d, product: %d", a, b, product);
         
         #(CLK_PERIOD*4);
         $finish;

@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen 
 // 
 // Create Date: 05/20/2024 11:41:09 PM
-// Design Name: 
+// Design Name: tb_multiplier_32_dsp.sv
 // Module Name: tb_multiplier_32_dsp
-// Project Name: 
+// Project Name: Assignment 5
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: The testbench file for DSP-based 32-bit multiplier.
 // 
 // Dependencies: 
 // 

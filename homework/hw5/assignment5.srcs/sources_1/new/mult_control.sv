@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
-// Create Date: 05/23/2024 10:34:52 PM
-// Design Name: mult_control.sv
-// Module Name: mult_control
-// Project Name: 
+// Create Date: 05/21/2024 03:11:17 PM
+// Design Name: tb_multiplier_32.sv
+// Module Name: tb_multiplier_32
+// Project Name: Assignment 5
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: The states controller for the sequential multiplier.
 // 
 // Dependencies: 
 // 
@@ -18,7 +18,6 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module mult_control(
     input clk_i,
@@ -41,7 +40,7 @@ module mult_control(
         SHIFT = 2'b11
     } mult_ps, mult_ns;
 
-
+    // mult_ps
     always_ff @(posedge clk_i, negedge resetn_i) begin
         if (~resetn_i)  mult_ps <= IDLE;
         else            mult_ps <= mult_ns;
@@ -50,21 +49,31 @@ module mult_control(
     // mult_ns
     always_comb begin
         case (mult_ps)
-            IDLE:   if (start_i)                
+            IDLE: begin
+            $display("IDLE STATE at time %t", $time);
+                    if (start_i)                
                         mult_ns = CHECK;
                     else               
                         mult_ns = IDLE;
+                  end      
 
-            CHECK:  if (count >= 32)             
-                        mult_ns = IDLE;
-                    else if (multiplier_bit0_i)  
-                        mult_ns = ADD;
-                    else                         
-                        mult_ns = SHIFT;
-            ADD:                                 
-                mult_ns = SHIFT;
-            SHIFT:                               
-                mult_ns = CHECK;
+            CHECK: begin
+            $display("CHECK STATE at time %t", $time);
+                     if (count >= 32)             
+                         mult_ns = IDLE;
+                     else if (multiplier_bit0_i)  
+                         mult_ns = ADD;
+                     else                         
+                         mult_ns = SHIFT;
+                   end   
+            ADD: begin      
+            $display("ADD STATE at time %t", $time);                          
+                    mult_ns = SHIFT;
+                 end
+            SHIFT: begin      
+            $display("SHIFT STATE at time %t", $time);                        
+                    mult_ns = CHECK;
+                   end
         endcase
     end
 

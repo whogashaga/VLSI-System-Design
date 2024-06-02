@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Gill-Chen
+// Engineer: Sanpreet Singh Gill & Yen-Chun Chen
 // 
 // Create Date: 05/20/2024 10:28:00 AM
 // Design Name: multiplier_32_dsp.sv
@@ -9,7 +9,7 @@
 // Project Name: Assignment 5
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: The design of DSP-based 32-bit multiplier.
 // 
 // Dependencies: 
 // 
@@ -21,13 +21,13 @@
 
 
 module multiplier_32_dsp(
-    input logic clk_i,
-    input logic resetn_i,
-    input logic start_i,
-    input logic [31:0] a_i,
-    input logic [31:0] b_i,
-    output logic [63:0] product_o,
-    output logic done_o
+    input clk_i,
+    input resetn_i,
+    input start_i,
+    input [31:0] a_i,
+    input [31:0] b_i,
+    output reg [63:0] product_o,
+    output done_o
 );
     // FSM states
     typedef enum logic [1:0] {
@@ -41,7 +41,6 @@ module multiplier_32_dsp(
     state ps, ns;     
     logic [31:0] a_reg, b_reg;
     logic [63:0] p_reg;
-    logic mult_start;
 
     mult_32 dsp (
         .A(a_reg),
@@ -68,28 +67,21 @@ module multiplier_32_dsp(
     always_comb begin
         case (ps)
             IDLE: begin
-                if (start_i) begin
-                    ns = LOAD;
-                end else begin
-                    ns = IDLE;
-                end
+                if (start_i) ns = LOAD;
+                else         ns = IDLE;
             end
-            LOAD: begin
-                ns = COMPUTE;
-            end
-            COMPUTE: begin
-                ns = DONE;
-            end
-            DONE: begin
-                ns = IDLE;
-            end
+            LOAD:    ns = COMPUTE;
+            COMPUTE: ns = DONE;
+            DONE:    ns = IDLE;
             default: ns = IDLE;
         endcase
     end
 
-
-    // assign outputs
-    assign product_o = p_reg;
+    always_comb begin
+        product_o = p_reg;
+    end
+    
+//    assign product_o = p_reg;
     assign done_o = (ps == DONE);
 
 
