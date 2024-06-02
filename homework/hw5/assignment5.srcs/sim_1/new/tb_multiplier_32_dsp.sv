@@ -62,15 +62,15 @@ module tb_multiplier_32_dsp();
         $display("a: %d, b: %d, product: %d", a, b, product);
         
         // (-15) * 30 = (-450)
-        rstn = 0;
+//        rstn = 0;
         #(CLK_PERIOD*2);
-        rstn = 1;
+//        rstn = 1;
         a = -32'd15;
         b = 32'd30;
         start = 1;
         #10;
         start = 0;
-//        wait(done);
+        wait(done);
         #20;
         $display("a: %d, b: %d, product: %d", a, b, product);
         

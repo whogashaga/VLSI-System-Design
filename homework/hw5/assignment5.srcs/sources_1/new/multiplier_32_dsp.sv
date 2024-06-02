@@ -29,20 +29,19 @@ module multiplier_32_dsp(
     output logic [63:0] product_o,
     output logic done_o
 );
-
+    // FSM states
     typedef enum logic [1:0] {
-        IDLE,
-        LOAD,
-        COMPUTE,    
-        DONE
+        IDLE    = 2'b00,
+        LOAD    = 2'b01,
+        COMPUTE = 2'b10,    
+        DONE    = 2'b11
     } state;
-
-    // current_state, next_state
-    reg [1:0] cs, ns;     
-    reg [31:0] a_reg, b_reg;
-    wire [63:0] p_reg;
-    wire mult_ready;
-    reg mult_start;
+    
+    // present_state, next_state
+    state ps, ns;     
+    logic [31:0] a_reg, b_reg;
+    logic [63:0] p_reg;
+    logic mult_start;
 
     mult_32 dsp (
         .A(a_reg),
@@ -53,41 +52,21 @@ module multiplier_32_dsp(
    
     always_ff @(posedge clk_i or negedge resetn_i) begin
         if (~resetn_i) begin
-            cs <= IDLE;
+            ps <= IDLE;
+            a_reg <= '0;
+            b_reg <= '0;
         end else begin
-            cs <= ns;
+            ps <= ns;
+            if (ps == LOAD) begin
+                a_reg <= a_i;
+                b_reg <= b_i;
+            end
         end
     end
     
-    // 
-    always_ff @(posedge clk_i or negedge resetn_i) begin
-        if (~resetn_i) begin
-            a_reg <= '0;
-            b_reg <= '0;
-            mult_start <= '0;
-        end else begin
-            case (cs)
-                IDLE: begin
-                    mult_start <= '0;
-                end
-                LOAD: begin
-                    a_reg <= a_i;
-                    b_reg <= b_i;
-                    mult_start <= '1;
-                end
-                COMPUTE: begin
-                    mult_start <= '0;
-                end
-                DONE: begin
-                    // do nothing
-                end
-            endcase
-        end
-    end  
-    
-    // determine ns
+    // determine next state
     always_comb begin
-        case (cs)
+        case (ps)
             IDLE: begin
                 if (start_i) begin
                     ns = LOAD;
@@ -99,11 +78,7 @@ module multiplier_32_dsp(
                 ns = COMPUTE;
             end
             COMPUTE: begin
-                if (mult_ready) begin
-                    ns = DONE;
-                end else begin
-                    ns = COMPUTE;
-                end
+                ns = DONE;
             end
             DONE: begin
                 ns = IDLE;
@@ -115,7 +90,7 @@ module multiplier_32_dsp(
 
     // assign outputs
     assign product_o = p_reg;
-    assign done_o = (cs == DONE);
+    assign done_o = (ps == DONE);
 
 
 endmodule

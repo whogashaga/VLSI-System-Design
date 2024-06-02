@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+a:         15, b:         10, product:                    5
+a: 4294967281, b:         30, product:          34359736568
+$finish called at time : 795 ns : File "C:/Users/coe_user/Documents/ECE574_Local/homework/hw5/assignment5.srcs/sim_1/new/tb_multiplier_32.sv" Line 79

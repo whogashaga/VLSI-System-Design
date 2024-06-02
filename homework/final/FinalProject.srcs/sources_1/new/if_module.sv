@@ -105,12 +105,12 @@ begin
     end
     else
     begin
-        if (opcode == 4'b1010)
+        if (opcode == 4'b1010)  // jumps
         begin
             stack[stack_ptr] <= prog_cnt+1;
             stack_ptr <= stack_ptr+1;
         end
-        else if (opcode == 4'b1011)
+        else if (opcode == 4'b1011) // RETS
         begin
             stack_ptr <= stack_ptr-1;
         end 

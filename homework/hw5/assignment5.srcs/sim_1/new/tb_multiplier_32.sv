@@ -30,10 +30,10 @@ module tb_multiplier_32();
     
     parameter CLK_PERIOD = 10;
 
-    // Instantiate the top module
-    multiplier_32 uut (
-        .a_in(a),
-        .b_in(b),
+//    multiplier_32 uut (
+    multiplier_32_seq uut(
+        .a_i(a),
+        .b_i(b),
         .clk_i(clk),
         .resetn_i(rstn),
         .start_i(start),
@@ -51,17 +51,31 @@ module tb_multiplier_32();
         start = 0;
         a = 0;
         b = 0;
-        #20;
+        #(CLK_PERIOD*2);
         rstn = 1;
-        #20;
+        #(CLK_PERIOD*2);
+        
+        // 15 * 10 = 150
         a = 32'd15;
         b = 32'd10;
+        start = 1;
+        #CLK_PERIOD;
+        start = 0;
+        #20;
+        $display("a: %d, b: %d, product: %d", a, b, product);
+        
+        // (-15) * 30 = (-450)
+        #(CLK_PERIOD*2);
+        a = -32'd15;
+        b = 32'd30;
         start = 1;
         #10;
         start = 0;
         wait(done);
         #20;
-        $display("Product: %d", product);
+        $display("a: %d, b: %d, product: %d", a, b, product);
+        
+        #(CLK_PERIOD*4);
         $finish;
     end
 

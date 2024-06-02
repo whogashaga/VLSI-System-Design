@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../assignment5.srcs/sources_1/new/mult_control.sv" \
+"../../../../assignment5.srcs/sources_1/new/multiplier_32_seq.sv" \
+"../../../../assignment5.srcs/sim_1/new/tb_multiplier_32.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
