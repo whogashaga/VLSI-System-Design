@@ -38,12 +38,12 @@ module ex_module (
     
     output reg zflg_o,
     output reg [7:0] rdregaddr_o,   // rs1 result
-    output reg [7:0] rdregout_o,    // rs2 result
-    output reg [7:0] ssel_result_o,
-    output reg [7:0] isel_result_o,
-    output reg [7:0] rsel_result_o,
-    output reg [16-1:0] wen_o,
-    output reg [3:0] rd_o
+    output reg [7:0] rdregout_o    // rs2 result
+//    output reg [7:0] ssel_result_o,
+//    output reg [7:0] isel_result_o,
+//    output reg [7:0] rsel_result_o,
+//    output reg [16-1:0] wen_o,
+//    output reg [3:0] rd_o
     
 );
     wire memr; wire memw;
@@ -227,11 +227,11 @@ module ex_module (
         zflg_o = (mux_opa == 0);
         rdregaddr_o = mux_opa;
         rdregout_o = mux_opb;
-        ssel_result_o = ssel_result;
-        isel_result_o = isel_result;
-        rsel_result_o = rsel_result;
-        wen_o = wen;
-        rd_o = rd;
+//        ssel_result_o = ssel_result;
+//        isel_result_o = isel_result;
+//        rsel_result_o = rsel_result;
+//        wen_o = wen;
+//        rd_o = rd;
     end
     
 //    assign zflg_o = (mux_opa == 0);

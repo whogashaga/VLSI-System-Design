@@ -31,11 +31,11 @@ module tb_ex_module();
     logic [7:0] rdregaddr;
     logic [7:0] rdregout;
     
-    logic [7:0] ssel_result;
-    logic [7:0] isel_result;
-    logic [7:0] rsel_result;
-    logic [16-1:0] wen;
-    logic [3:0] rd;
+//    logic [7:0] ssel_result;
+//    logic [7:0] isel_result;
+//    logic [7:0] rsel_result;
+//    logic [16-1:0] wen;
+//    logic [3:0] rd;
     
     ex_module uut (
         .clk_i(clk),
@@ -44,12 +44,12 @@ module tb_ex_module();
         .instruction_i(instruction),
         .zflg_o(zflg),
         .rdregaddr_o(rdregaddr),
-        .rdregout_o(rdregout),
-        .rd_o(rd),
-        .ssel_result_o(ssel_result),
-        .isel_result_o(isel_result),
-        .rsel_result_o(rsel_result),
-        .wen_o(wen) 
+        .rdregout_o(rdregout)
+//        .rd_o(rd),
+//        .ssel_result_o(ssel_result),
+//        .isel_result_o(isel_result),
+//        .rsel_result_o(rsel_result),
+//        .wen_o(wen) 
     );
 
     // Clock generation

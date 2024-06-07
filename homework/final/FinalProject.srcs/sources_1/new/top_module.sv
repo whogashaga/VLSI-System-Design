@@ -36,15 +36,19 @@ module top_module(
     
     // few ries
     wire zflg;
-    wire [7:0] rdregout;
+    wire [7:0] rd_addr; // rs1
+    wire [7:0] rd_out;  // rs2
+    wire [16-1:0] instruction;
     
     // instantiate ex_module
     ex_module ex_module(
     .clk_i(clk_i),
     .resetn_i(resetn_i),
     .ce_i(ce_i),
+    .instruction_i(instruction),
     .zflg_o(zflg),
-    .rdregout_o(rdregout)
+    .rdregaddr_o(rd_addr),
+    .rdregout_o(rd_out)
     );
     
     // instantiate if_module
