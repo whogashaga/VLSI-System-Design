@@ -54,7 +54,7 @@ module top_module(
     .ce_i(ce_i),
     .start_i(start_i),
     .zflg_i(zflg),
-    .rdreg_i(rdreg)
+    .rdreg_i(rdregout)
     );
     
 endmodule

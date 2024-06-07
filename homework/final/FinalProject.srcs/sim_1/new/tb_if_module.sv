@@ -28,8 +28,8 @@ module tb_if_module();
     logic ce;
     logic start;
     logic zflg;
-    logic [N-1:0] rdreg;
-    logic [M-1:0] inst;
+    logic [12-1:0] rdreg;
+    logic [16-1:0] inst;
     
     always #(PERIOD/2) clk = ~clk;
 
@@ -40,11 +40,21 @@ module tb_if_module();
         .start_i(start),
         .zflg_i(zflg),
         .rdreg_i(rdreg),
-        .instrution_o(inst)
+        .instruction_o(inst)
     );
     
     initial begin
-    
+        clk = 1;
+        rstn = 0;
+        #(PERIOD);
+        ce = 1;
+        start = 1;
+        rstn = 1;
+        #(PERIOD);
+        start = 0;
+        
+        #600;
+        $finish;
     end
 
 endmodule

@@ -36,10 +36,15 @@ module ex_module (
 //    output reg [8-1:0] opresult_o,
 //    // sysnthesis translate_on
     
-    output zflg_o,
-    output [7:0] rdregaddr_o,
-    output rd_o,
-    output [7:0] rdregout_o
+    output reg zflg_o,
+    output reg [7:0] rdregaddr_o,   // rs1 result
+    output reg [7:0] rdregout_o,    // rs2 result
+    output reg [7:0] ssel_result_o,
+    output reg [7:0] isel_result_o,
+    output reg [7:0] rsel_result_o,
+    output reg [16-1:0] wen_o,
+    output reg [3:0] rd_o
+    
 );
     wire memr; wire memw;
 //    assign memr = (opcode == `opc_memr); // mem read
@@ -78,6 +83,7 @@ module ex_module (
     
     decode_module#(16) decoder (
       .clk_i(clk_i),
+      .ce_i(ce_i),
       .instruction_i(instruction_i),
       .rs1_o(rs1),
       .rs2_o(rs2),
@@ -152,13 +158,13 @@ module ex_module (
         endcase
     end
     
-    wire rs2_or_rd;
-    assign rs2_or_rd = (rdsel) ? rd : rs2;
+    wire [3:0] mux_rs2_rd;
+    assign mux_rs2_rd = (rdsel) ? rd : rs2;
     
     // operand B mux
     always @(*)
     begin
-        case(rs2_or_rd)
+        case(mux_rs2_rd)
         4'd0:  mux_opb = reg0;
         4'd1:  mux_opb = reg1;
         4'd2:  mux_opb = reg2;
@@ -192,6 +198,7 @@ module ex_module (
         begin
             if(ce_i)
             begin
+                $display("At time %t, wen: %d", $time, wen);
                 case(wen)
                     16'b0000000000000001: reg0  = rsel_result;
                     16'b0000000000000010: reg1  = rsel_result;
@@ -216,9 +223,20 @@ module ex_module (
     end
  
     // Assign Output Signals
-    assign zflg_o = (mux_opa == 0);
-    assign rdregaddr_o = mux_opa;
-    assign rd_0 = mux_opb;
-    assign rdregout_o = mux_opb;
+    always @(posedge clk_i or negedge resetn_i) begin
+        zflg_o = (mux_opa == 0);
+        rdregaddr_o = mux_opa;
+        rdregout_o = mux_opb;
+        ssel_result_o = ssel_result;
+        isel_result_o = isel_result;
+        rsel_result_o = rsel_result;
+        wen_o = wen;
+        rd_o = rd;
+    end
+    
+//    assign zflg_o = (mux_opa == 0);
+//    assign rdregaddr_o = mux_opa;
+//    assign rd_0 = mux_opb;
+//    assign rdregout_o = mux_opb;
      
 endmodule
