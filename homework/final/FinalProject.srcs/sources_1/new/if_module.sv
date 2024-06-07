@@ -21,19 +21,16 @@
 
 `include "risc_pack.v"
 
-module if_module #(
-    parameter N = 8,
-    parameter M = 16
-) (
+module if_module (
     input clk_i,
     input resetn_i,
     input ce_i,
-    input start_i,  // from TOP -- START
-    input zflg_i,   // coming 
-    input [N-1:0] rdreg_i,
+    input start_i,  // from TOP
+    input zflg_i,   // from EX 
+    input [8-1:0] rdreg_i,
     
     // comment -- additional
-    output reg [M-1:0] instruction_o
+    output reg [16-1:0] instruction_o
 );
 
 wire [11:0] pmem_addr;
@@ -43,9 +40,8 @@ reg [11:0] prog_cnt;
 reg [11:0] mux1_prog_cnt;
 wire [11:0] prog_cnt_inc;
 
-wire [11:0] jmp_addr;
-
 wire [3:0] opcode;
+wire [11:0] jmp_addr;
 
 // stack is missing
 // comment: stack related signals
@@ -59,7 +55,7 @@ blk_mem_program prog_mem (
   .douta(pmem_dout)  // output wire [15 : 0] douta
 );
 
-assing opcode = pmem_dout[15:12];
+assign opcode = pmem_dout[15:12];
 assign jmpd_addr = pmem_dout[11:0];
 
 // program counter + 1 to next address

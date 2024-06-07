@@ -43,7 +43,7 @@ module tb_multiplier_32_dsp();
     always #(CLK_PERIOD/2) clk = ~clk;
 
     initial begin
-        clk = 0;
+        clk = 1;
         rstn = 0;
         start = 0;
         a = 0;
@@ -55,6 +55,7 @@ module tb_multiplier_32_dsp();
         // 15 * 10 = 150
         a = 32'd15;
         b = 32'd10;
+        #(CLK_PERIOD*2);
         start = 1;
         #CLK_PERIOD;
         start = 0;
@@ -63,10 +64,11 @@ module tb_multiplier_32_dsp();
         
         // (-15) * 30 = (-450)
 //        rstn = 0;
-        #(CLK_PERIOD*2);
+        #(CLK_PERIOD*10);
 //        rstn = 1;
         a = -32'd15;
         b = 32'd30;
+        #(CLK_PERIOD*2);
         start = 1;
         #10;
         start = 0;
@@ -74,7 +76,7 @@ module tb_multiplier_32_dsp();
         #20;
         $display("a: %d, b: %d, product: %d", a, b, product);
         
-        #(CLK_PERIOD*4);
+        #(CLK_PERIOD*10);
         $finish;
     end
 

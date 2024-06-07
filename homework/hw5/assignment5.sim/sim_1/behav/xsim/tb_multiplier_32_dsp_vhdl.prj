@@ -1,0 +1,6 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../assignment5.gen/sources_1/ip/mult_32/sim/mult_32.vhd" \
+
+# Do not sort compile order
+nosort

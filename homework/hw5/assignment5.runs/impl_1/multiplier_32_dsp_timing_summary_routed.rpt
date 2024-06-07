@@ -1,0 +1,721 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
+| Date         : Wed Jun  5 12:35:41 2024
+| Host         : coe-loan-008 running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -max_paths 10 -report_unconstrained -file multiplier_32_dsp_timing_summary_routed.rpt -pb multiplier_32_dsp_timing_summary_routed.pb -rpx multiplier_32_dsp_timing_summary_routed.rpx -warn_on_violation
+| Design       : multiplier_32_dsp
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+Rule       Severity          Description                  Violations  
+---------  ----------------  ---------------------------  ----------  
+TIMING-17  Critical Warning  Non-clocked sequential cell  69          
+DPIR-1     Warning           Asynchronous driver check    112         
+
+Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (69)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (202)
+5. checking no_input_delay (66)
+6. checking no_output_delay (65)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (69)
+-------------------------
+ There are 69 register/latch pins with no clock driven by root clock pin: clk_i (HIGH)
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (202)
+--------------------------------------------------
+ There are 202 pins that are not constrained for maximum delay. (HIGH)
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (66)
+-------------------------------
+ There are 66 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (65)
+--------------------------------
+ There are 65 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+        inf        0.000                      0                  267          inf        0.000                      0                  267           NA           NA                      NA                    NA  
+
+
+There are no user specified timing constraints.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+(none)                                    
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  
+  To Clock:  
+
+Max Delay           267 Endpoints
+Min Delay           267 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[60]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        17.416ns  (logic 12.149ns (69.755%)  route 5.268ns (30.245%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[26])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[26]
+                         net (fo=1, routed)           4.138    14.766    product_o_OBUF[60]
+    B13                  OBUF (Prop_obuf_I_O)         2.651    17.416 r  product_o_OBUF[60]_inst/O
+                         net (fo=0)                   0.000    17.416    product_o[60]
+    B13                                                               r  product_o[60] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[56]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        17.254ns  (logic 12.156ns (70.452%)  route 5.098ns (29.548%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[22])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[22]
+                         net (fo=1, routed)           3.969    14.596    product_o_OBUF[56]
+    B11                  OBUF (Prop_obuf_I_O)         2.658    17.254 r  product_o_OBUF[56]_inst/O
+                         net (fo=0)                   0.000    17.254    product_o[56]
+    B11                                                               r  product_o[56] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[62]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        17.249ns  (logic 12.129ns (70.315%)  route 5.120ns (29.685%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[28])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[28]
+                         net (fo=1, routed)           3.991    14.618    product_o_OBUF[62]
+    D14                  OBUF (Prop_obuf_I_O)         2.631    17.249 r  product_o_OBUF[62]_inst/O
+                         net (fo=0)                   0.000    17.249    product_o[62]
+    D14                                                               r  product_o[62] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[59]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        17.218ns  (logic 12.143ns (70.521%)  route 5.076ns (29.479%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[25])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[25]
+                         net (fo=1, routed)           3.946    14.574    product_o_OBUF[59]
+    B14                  OBUF (Prop_obuf_I_O)         2.645    17.218 r  product_o_OBUF[59]_inst/O
+                         net (fo=0)                   0.000    17.218    product_o[59]
+    B14                                                               r  product_o[59] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[63]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        17.211ns  (logic 12.121ns (70.423%)  route 5.091ns (29.577%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[29])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[29]
+                         net (fo=1, routed)           3.961    14.589    product_o_OBUF[63]
+    G13                  OBUF (Prop_obuf_I_O)         2.623    17.211 r  product_o_OBUF[63]_inst/O
+                         net (fo=0)                   0.000    17.211    product_o[63]
+    G13                                                               r  product_o[63] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[58]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        17.107ns  (logic 12.153ns (71.042%)  route 4.954ns (28.958%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[24])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[24]
+                         net (fo=1, routed)           3.824    14.452    product_o_OBUF[58]
+    C12                  OBUF (Prop_obuf_I_O)         2.655    17.107 r  product_o_OBUF[58]_inst/O
+                         net (fo=0)                   0.000    17.107    product_o[58]
+    C12                                                               r  product_o[58] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[55]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        17.075ns  (logic 12.157ns (71.197%)  route 4.918ns (28.803%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[21])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[21]
+                         net (fo=1, routed)           3.789    14.416    product_o_OBUF[55]
+    A11                  OBUF (Prop_obuf_I_O)         2.659    17.075 r  product_o_OBUF[55]_inst/O
+                         net (fo=0)                   0.000    17.075    product_o[55]
+    A11                                                               r  product_o[55] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[54]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        17.069ns  (logic 12.142ns (71.135%)  route 4.927ns (28.865%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[20])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[20]
+                         net (fo=1, routed)           3.798    14.425    product_o_OBUF[54]
+    F13                  OBUF (Prop_obuf_I_O)         2.644    17.069 r  product_o_OBUF[54]_inst/O
+                         net (fo=0)                   0.000    17.069    product_o[54]
+    F13                                                               r  product_o[54] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[52]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        16.986ns  (logic 12.142ns (71.481%)  route 4.844ns (28.519%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[18])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[18]
+                         net (fo=1, routed)           3.715    14.342    product_o_OBUF[52]
+    D12                  OBUF (Prop_obuf_I_O)         2.644    16.986 r  product_o_OBUF[52]_inst/O
+                         net (fo=0)                   0.000    16.986    product_o[52]
+    D12                                                               r  product_o[52] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 a_reg_reg[16]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            product_o[48]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        16.864ns  (logic 12.158ns (72.097%)  route 4.706ns (27.903%))
+  Logic Levels:           6  (DSP48E1=4 FDCE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y82          FDCE                         0.000     0.000 r  a_reg_reg[16]/C
+    SLICE_X2Y82          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  a_reg_reg[16]/Q
+                         net (fo=1, routed)           1.123     1.641    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/A[16]
+    DSP48_X0Y34          DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
+                                                      4.036     5.677 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     5.679    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,0][47]
+    DSP48_X0Y35          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     7.392 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[0].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.394    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[0,1][47]
+    DSP48_X0Y36          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.713     9.107 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[0].use_dsp.use_dsp48e1.iDSP48E1/PCOUT[47]
+                         net (fo=1, routed)           0.002     9.109    dsp/U0/i_mult/gDSP.gDSP_only.iDSP/pcout[1,0][47]
+    DSP48_X0Y37          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[14])
+                                                      1.518    10.627 r  dsp/U0/i_mult/gDSP.gDSP_only.iDSP/use_prim.appDSP[1].bppDSP[1].use_dsp.use_dsp48e1.iDSP48E1/P[14]
+                         net (fo=1, routed)           3.576    14.204    product_o_OBUF[48]
+    A15                  OBUF (Prop_obuf_I_O)         2.660    16.864 r  product_o_OBUF[48]_inst/O
+                         net (fo=0)                   0.000    16.864    product_o[48]
+    A15                                                               r  product_o[48] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[2]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            FSM_onehot_ps_reg[3]_lopt_replica/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.262ns  (logic 0.128ns (48.926%)  route 0.134ns (51.074%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[2]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.128     0.128 r  FSM_onehot_ps_reg[2]/Q
+                         net (fo=2, routed)           0.134     0.262    FSM_onehot_ps_reg_n_0_[2]
+    SLICE_X0Y84          FDCE                                         r  FSM_onehot_ps_reg[3]_lopt_replica/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[2]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            FSM_onehot_ps_reg[3]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.263ns  (logic 0.128ns (48.640%)  route 0.135ns (51.360%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[2]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.128     0.128 r  FSM_onehot_ps_reg[2]/Q
+                         net (fo=2, routed)           0.135     0.263    FSM_onehot_ps_reg_n_0_[2]
+    SLICE_X0Y83          FDCE                                         r  FSM_onehot_ps_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[1]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            a_reg_reg[0]/CE
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.859%)  route 0.136ns (49.141%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[1]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  FSM_onehot_ps_reg[1]/Q
+                         net (fo=65, routed)          0.136     0.277    a_reg
+    SLICE_X3Y82          FDCE                                         r  a_reg_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[1]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            a_reg_reg[10]/CE
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.859%)  route 0.136ns (49.141%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[1]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  FSM_onehot_ps_reg[1]/Q
+                         net (fo=65, routed)          0.136     0.277    a_reg
+    SLICE_X3Y82          FDCE                                         r  a_reg_reg[10]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[1]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            a_reg_reg[11]/CE
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.859%)  route 0.136ns (49.141%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[1]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  FSM_onehot_ps_reg[1]/Q
+                         net (fo=65, routed)          0.136     0.277    a_reg
+    SLICE_X3Y82          FDCE                                         r  a_reg_reg[11]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[1]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            a_reg_reg[18]/CE
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.859%)  route 0.136ns (49.141%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[1]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  FSM_onehot_ps_reg[1]/Q
+                         net (fo=65, routed)          0.136     0.277    a_reg
+    SLICE_X3Y82          FDCE                                         r  a_reg_reg[18]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[1]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            a_reg_reg[28]/CE
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.859%)  route 0.136ns (49.141%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[1]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  FSM_onehot_ps_reg[1]/Q
+                         net (fo=65, routed)          0.136     0.277    a_reg
+    SLICE_X3Y82          FDCE                                         r  a_reg_reg[28]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[1]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            a_reg_reg[5]/CE
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.859%)  route 0.136ns (49.141%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[1]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  FSM_onehot_ps_reg[1]/Q
+                         net (fo=65, routed)          0.136     0.277    a_reg
+    SLICE_X3Y82          FDCE                                         r  a_reg_reg[5]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[1]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            a_reg_reg[6]/CE
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.859%)  route 0.136ns (49.141%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[1]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  FSM_onehot_ps_reg[1]/Q
+                         net (fo=65, routed)          0.136     0.277    a_reg
+    SLICE_X3Y82          FDCE                                         r  a_reg_reg[6]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 FSM_onehot_ps_reg[1]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            a_reg_reg[7]/CE
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.859%)  route 0.136ns (49.141%))
+  Logic Levels:           1  (FDCE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y83          FDCE                         0.000     0.000 r  FSM_onehot_ps_reg[1]/C
+    SLICE_X0Y83          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  FSM_onehot_ps_reg[1]/Q
+                         net (fo=65, routed)          0.136     0.277    a_reg
+    SLICE_X3Y82          FDCE                                         r  a_reg_reg[7]/CE
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+

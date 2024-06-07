@@ -22,8 +22,6 @@
 
 module tb_if_module();
     parameter PERIOD = 20;
-    parameter N = 8;
-    parameter M = 16;
     
     logic clk;
     logic rstn;
@@ -35,10 +33,7 @@ module tb_if_module();
     
     always #(PERIOD/2) clk = ~clk;
 
-    if_module #(
-        .N(N), 
-        .M(M)
-    ) uut_if (
+    if_module uut_if (
         .clk_i(clk),
         .resetn_i(rstn),
         .ce_i(ce),

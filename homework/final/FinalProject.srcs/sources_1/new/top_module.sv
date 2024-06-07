@@ -26,21 +26,35 @@ module top_module(
     input ce_i,
     input start_i,
     
-    // synthesis translate_off
-    output [8-1:0] dbg_reg1_o,
-    output [8-1:0] dbg_reg2_o,
-    output [8-1:0] opresult_o,
-    
-    // sysnthesis translate_on
+//    // synthesis translate_off
+//    output [8-1:0] dbg_reg1_o,
+//    output [8-1:0] dbg_reg2_o,
+//    output [8-1:0] opresult_o,
+//    // sysnthesis translate_on
     output [7:0] instruction_o
     );
     
     // few ries
+    wire zflg;
+    wire [7:0] rdregout;
     
     // instantiate ex_module
-    ex_module ex_module();
+    ex_module ex_module(
+    .clk_i(clk_i),
+    .resetn_i(resetn_i),
+    .ce_i(ce_i),
+    .zflg_o(zflg),
+    .rdregout_o(rdregout)
+    );
     
     // instantiate if_module
-    if_module if_module();
+    if_module if_module(
+    .clk_i(clk_i),
+    .resetn_i(resetn_i),
+    .ce_i(ce_i),
+    .start_i(start_i),
+    .zflg_i(zflg),
+    .rdreg_i(rdreg)
+    );
     
 endmodule
