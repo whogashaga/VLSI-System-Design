@@ -33,7 +33,7 @@ module alu_module(
             2'b01: result_o = ~(a_i | b_i);  // NOR operation
             2'b10: result_o = a_i ^ b_i;     // XOR operation
             2'b11: result_o = a_i + b_i;     // ADD operation
-            default: result_o = '0;          // Default case to avoid latches
+            default: result_o = '0;          
         endcase
     end
     

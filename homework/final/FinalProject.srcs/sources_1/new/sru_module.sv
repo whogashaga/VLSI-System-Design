@@ -31,7 +31,12 @@ module sru_module (
 
     always @(*) begin
         case (fsel_i)
-            2'b00: result_o <= (a_i << shift_amount) | (a_i >> (8 - shift_amount)); // Rotate Left
+            2'b00:  begin                                                           // Rotate Left
+                if (shift_amount < 9)   
+                    result_o <= (a_i << shift_amount) | (a_i >> (8 - shift_amount)); 
+                else
+                    result_o <= (a_i << (shift_amount - 8)) | (a_i >> (8 - (shift_amount-8)));
+            end
             2'b01: result_o <= a_i << shift_amount;                                 // Shift Left Arithmetic
             2'b10: result_o <= a_i >>> shift_amount;                                // Shift Right Arithmetic
             2'b11: result_o <= a_i >> shift_amount;                                 // Shift Right Logic

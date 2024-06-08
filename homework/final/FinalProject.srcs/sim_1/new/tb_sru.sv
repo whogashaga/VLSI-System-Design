@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Chen
+// Engineer: Yen-Chun Chen
 // 
 // Create Date: 06/01/2024 07:25:24 PM
-// Design Name: 
+// Design Name: tb_sru.sv
 // Module Name: tb_sru
 // Project Name: 
 // Target Devices: 

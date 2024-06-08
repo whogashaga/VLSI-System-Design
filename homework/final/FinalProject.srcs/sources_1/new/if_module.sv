@@ -6,7 +6,7 @@
 // Create Date: 05/24/2024 02:23:31 PM
 // Design Name: if_module
 // Module Name: if_module.sv
-// Project Name: Final Project
+// Project Name: Microprocessor
 // Target Devices: 
 // Tool Versions: 
 // Description: 
@@ -28,19 +28,26 @@ module if_module (
     input start_i,  // from TOP
     input zflg_i,   // from EX 
     input [8-1:0] rdreg_i,  // from EX 
-    
-    // comment -- additional
+
     output reg [16-1:0] instruction_o
 );
     
     wire [12-1:0] pmem_addr;
     wire [16-1:0] pmem_dout;
     
+    // Program Memory BROM
+    blk_mem_program prog_mem (
+      .clka(clk_i),      // input wire clka
+      .ena(ce_i),        // input wire ena
+      .addra(pmem_addr), // input wire [11 : 0] addra
+      .douta(pmem_dout)  // output wire [15 : 0] douta
+    );
+    
+    // Output the instruction 
+    assign instruction_o = pmem_dout; 
+    
     wire [4-1:0] opcode;
     assign opcode = pmem_dout[15:12];
-    
-    // #Adr: input for jsel mux
-    wire [12-1:0] jmp_addr;
     
     // JMPD 12-bit
     wire [12-1:0] jmpd_addr;
@@ -49,7 +56,7 @@ module if_module (
     reg [12-1:0] prog_cnt;
     // program counter + 1 to next address
     wire [12-1:0] prog_cnt_plus_one;
-    assign prog_cnt_plus_one = prog_cnt + 1;
+    assign prog_cnt_plus_one = (~resetn_i) ? 0 : prog_cnt + 1;
     
     // extend Rd to 12-bit
     wire [12-1:0] Rd_12_bit;
@@ -75,9 +82,9 @@ module if_module (
     // jump sel mux
     wire [1:0] jmp_sel;
     assign jmp_sel = opcode[1:0];
-    wire [12-1:0]after_jsel;
+    wire [12-1:0] after_jsel;
     assign after_jsel = (jmp_sel == 2'b00) ? after_zflg :
-                        (jmp_sel == 2'b01) ? jmp_addr :
+                        (jmp_sel == 2'b01) ? jmpd_addr :
                         (jmp_sel == 2'b10) ? Rd_12_bit :
                         (jmp_sel == 2'b11) ? stack_top :
                         '0;
@@ -85,40 +92,31 @@ module if_module (
     // jump enable mux
     wire jmp_en;
     assign jmp_en = (opcode[3:2] == 2'b10);
+    
     wire [12-1:0] after_jmp_en;
     assign after_jmp_en = (jmp_en) ? after_jsel : prog_cnt_plus_one;
     
     // avoid infinite loop
-    assign pmem_addr = (start_i) ? 12'b000000000010 : after_jmp_en;
+    assign pmem_addr = (start_i) ? 12'b000000000010 :
+                       (jmp_en) ? after_jmp_en:
+                       prog_cnt;
     
-    blk_mem_program prog_mem (
-      .clka(clk_i),      // input wire clka
-      .ena(ce_i),        // input wire ena
-      .addra(pmem_addr), // input wire [11 : 0] addra
-      .douta(pmem_dout)  // output wire [15 : 0] douta
-    );
-    
-//     multiplexing for pmem_addr
-    always @(*)
-    begin
-        if (opcode == 4'b1001)                          // jmpd
-//            jmp_addr = jmpd_addr;
-            prog_cnt = jmp_addr;
-        else if (opcode == 4'b1000 && zflg_i)   // jmpc
-            prog_cnt = jmp_addr;                   
-        else if (opcode == 4'b1010)                     // jmps
+    // handle jump pc stack
+    always @(*) begin
+        if (opcode == 4'b1010) begin           // jmps
+            pop <= 0;
             push <= 1;
-        else if (opcode == 4'b1011)                     // RETS
-        begin
+        end else if (opcode == 4'b1011) begin  // RETS
+            push <= 0;
             pop <= 1;
-            prog_cnt = stack_top; 
-        end
-        else 
-            prog_cnt = prog_cnt_plus_one;
+            prog_cnt = stack_top;
+        end else begin                         // jmpc, jmpd, CP+1
+            push <= 0;
+            pop <= 0;
+        end           
+            
     end
     
-    // if we are in reset --> do nothing
-    // if not in reset --> count prog_cnt up OR ... jump/irq/... ?
     always @(posedge clk_i or negedge resetn_i)
     begin
         if (~resetn_i)
@@ -127,17 +125,10 @@ module if_module (
         end
         else
         begin
-            if (ce_i)
-                prog_cnt <= prog_cnt_plus_one;
+            if (jmp_en) prog_cnt = after_jsel;   // set to jmp address
+            else prog_cnt <= prog_cnt_plus_one;  // CP+1
         end
         
     end 
-    
-    // Output the instruction
-    always @(posedge clk_i) begin
-        instruction_o <= pmem_dout;
-    end
-    
-    //assign instruction_o = pmem_dout; 
     
 endmodule

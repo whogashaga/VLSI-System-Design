@@ -26,12 +26,12 @@ module top_module(
     input ce_i,
     input start_i,
     
-//    // synthesis translate_off
-//    output [8-1:0] dbg_reg1_o,
-//    output [8-1:0] dbg_reg2_o,
-//    output [8-1:0] opresult_o,
-//    // sysnthesis translate_on
-    output [7:0] instruction_o
+    // synthesis translate_off
+    output [8-1:0] dbg_reg1_o,
+    output [8-1:0] dbg_reg2_o,
+    output [8-1:0] opresult_o,
+    // sysnthesis translate_on
+    output [16-1:0] instruction_o
     );
     
     // few ries
@@ -40,7 +40,7 @@ module top_module(
     wire [7:0] rd_out;  // rs2
     wire [16-1:0] instruction;
     
-    // instantiate ex_module
+    // Decode, Execution, Memory, WriteBack
     ex_module ex_module(
     .clk_i(clk_i),
     .resetn_i(resetn_i),
@@ -51,14 +51,15 @@ module top_module(
     .rdregout_o(rd_out)
     );
     
-    // instantiate if_module
+    // Instruction Fetch
     if_module if_module(
     .clk_i(clk_i),
     .resetn_i(resetn_i),
     .ce_i(ce_i),
     .start_i(start_i),
     .zflg_i(zflg),
-    .rdreg_i(rdregout)
+    .rdreg_i(rdregout),
+    .instruction_o(instruction)
     );
     
 endmodule

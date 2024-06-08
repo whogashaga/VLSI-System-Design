@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Chen
+// Engineer: Yen-Chun Chen
 // 
 // Create Date: 06/01/2024 12:57:59 PM
 // Design Name: 
@@ -25,6 +25,7 @@ module tb_decoder_module();
     parameter InstWidth = 16;
     
     logic clk;
+    logic ce;
     logic [InstWidth-1:0] inst;
     
     logic [3:0] rs1;
@@ -40,6 +41,7 @@ module tb_decoder_module();
     
     decode_module#(InstWidth) uut_decode (
       .clk_i(clk),
+      .ce_i(ce),
       .instruction_i(inst),
       .rs1_o(rs1),
       .rs2_o(rs2),
@@ -57,6 +59,7 @@ module tb_decoder_module();
     
     initial begin
         clk = 1;
+        ce = 1;
         
         #(PERIOD*2);
         inst = 16'b1110000100000001;
@@ -67,6 +70,8 @@ module tb_decoder_module();
         #(PERIOD*2);
         inst = 16'b1100000110100000;
         
+        #(PERIOD*2);
+        $finish;
     end
 
 endmodule

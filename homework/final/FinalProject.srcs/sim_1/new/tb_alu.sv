@@ -48,7 +48,7 @@ module tb_alu();
         #20;
         fsel = 2'b11;
         
-        #100;
+        #20;
         $finish;
     end
 

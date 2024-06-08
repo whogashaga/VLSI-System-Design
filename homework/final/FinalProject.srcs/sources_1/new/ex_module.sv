@@ -30,27 +30,16 @@ module ex_module (
     input ce_i,
     input [16-1:0] instruction_i,
     
-//    // synthesis translate_off
-//    output reg [8-1:0] dbg_reg1_o,  // debug register? 
-//    output reg [8-1:0] dbg_reg2_o,
-//    output reg [8-1:0] opresult_o,
-//    // sysnthesis translate_on
+    // synthesis translate_off
+    output reg [8-1:0] dbg_reg1_o,  // debug register? 
+    output reg [8-1:0] dbg_reg2_o,
+    output reg [8-1:0] opresult_o,
+    // sysnthesis translate_on
     
     output reg zflg_o,
     output reg [7:0] rdregaddr_o,   // rs1 result
-    output reg [7:0] rdregout_o    // rs2 result
-//    output reg [7:0] ssel_result_o,
-//    output reg [7:0] isel_result_o,
-//    output reg [7:0] rsel_result_o,
-//    output reg [16-1:0] wen_o,
-//    output reg [3:0] rd_o
-    
+    output reg [7:0] rdregout_o    // rs2 result  
 );
-    wire memr; wire memw;
-//    assign memr = (opcode == `opc_memr); // mem read
-//    assign memw = (opcode == `opc_memw); // mem write
-    assign memr = (opcode == `opc_memr); // mem read
-    assign memw = (opcode == `opc_memw); // mem write
 
     reg [8-1:0] reg0;
     reg [8-1:0] reg1;
@@ -69,6 +58,7 @@ module ex_module (
     reg [8-1:0] reg14;
     reg [8-1:0] reg15;
     
+    wire [3:0] opcode;
     assign opcode = instruction_i[15:12];
     wire [3:0] rs1;
     wire [3:0] rs2;
@@ -97,8 +87,8 @@ module ex_module (
       .wen_o(wen)
     );
     
-    logic [7:0] mux_opa;
-    logic [7:0] mux_opb;
+    wire [7:0] mux_opa;
+    wire [7:0] mux_opb;
     wire [7:0] alu_o;
     wire [7:0] sru_o;
     
@@ -122,10 +112,18 @@ module ex_module (
     wire [7:0] isel_result;
     assign isel_result = (ssel) ? imm : ssel_result;
 
+    wire [7:0] mem_out;
+    wire memr; wire memw;
+//    assign memr = (opcode == `opc_memr); // mem read
+//    assign memw = (opcode == `opc_memw); // mem write
+    assign memr = (opcode == `opc_memr); // mem read
+    assign memw = (opcode == `opc_memw); // mem write
+    
     // possibly instantiate data memory module
     blk_mem_data data_mem (
       .clka(clk_i),      // input wire clka
-      .wea(memw),        // input wire [0 : 0] wea
+      .ena(memw || memr),        // input wire ena
+      .wea(memw),        // input wire [0 : 0] write enable
       .addra(mux_opa),   // input wire [7 : 0] addra
       .dina(mux_opb),    // input wire [7 : 0] dina
       .douta(mem_out)    // output wire [7 : 0] douta
@@ -135,55 +133,47 @@ module ex_module (
     assign rsel_result = (rsel) ? mem_out : isel_result;
     
     // operand A mux
-    always @(*)
-    begin
-        case(rs1)
-        4'd0:  mux_opa = reg0;
-        4'd1:  mux_opa = reg1;
-        4'd2:  mux_opa = reg2;
-        4'd3:  mux_opa = reg3;
-        4'd4:  mux_opa = reg4;
-        4'd5:  mux_opa = reg5;
-        4'd6:  mux_opa = reg6;
-        4'd7:  mux_opa = reg7;
-        4'd8:  mux_opa = reg8;
-        4'd9:  mux_opa = reg9;
-        4'd10: mux_opa = reg10;
-        4'd11: mux_opa = reg11;
-        4'd12: mux_opa = reg12;
-        4'd13: mux_opa = reg13;
-        4'd14: mux_opa = reg14;
-        4'd15: mux_opa = reg15;
-        default: mux_opa = reg0;
-        endcase
-    end
+    assign mux_opa = (rs1 == 4'd0) ? reg0 :
+                     (rs1 == 4'd1) ? reg1 :
+                     (rs1 == 4'd2) ? reg2 :
+                     (rs1 == 4'd3) ? reg3 :
+                     (rs1 == 4'd4) ? reg4 :
+                     (rs1 == 4'd5) ? reg5 :
+                     (rs1 == 4'd6) ? reg6 :
+                     (rs1 == 4'd7) ? reg7 :
+                     (rs1 == 4'd8) ? reg8 :
+                     (rs1 == 4'd9) ? reg9 :
+                     (rs1 == 4'd10) ? reg10 :
+                     (rs1 == 4'd11) ? reg11 :
+                     (rs1 == 4'd12) ? reg12 :
+                     (rs1 == 4'd13) ? reg13 :
+                     (rs1 == 4'd14) ? reg14 :
+                     (rs1 == 4'd15) ? reg15 :
+                     '0;
     
     wire [3:0] mux_rs2_rd;
     assign mux_rs2_rd = (rdsel) ? rd : rs2;
     
-    // operand B mux
-    always @(*)
-    begin
-        case(mux_rs2_rd)
-        4'd0:  mux_opb = reg0;
-        4'd1:  mux_opb = reg1;
-        4'd2:  mux_opb = reg2;
-        4'd3:  mux_opb = reg3;
-        4'd4:  mux_opb = reg4;
-        4'd5:  mux_opb = reg5;
-        4'd6:  mux_opb = reg6;
-        4'd7:  mux_opb = reg7;
-        4'd8:  mux_opb = reg8;
-        4'd9:  mux_opb = reg9;
-        4'd10: mux_opb = reg10;
-        4'd11: mux_opb = reg11;
-        4'd12: mux_opb = reg12;
-        4'd13: mux_opb = reg13;
-        4'd14: mux_opb = reg14;
-        4'd15: mux_opb = reg15;
-        default: mux_opb = reg0;
-        endcase
-    end
+    // operand B after mux
+    assign mux_opb = (mux_rs2_rd == 4'd0) ? reg0 :
+                     (mux_rs2_rd == 4'd1) ? reg1 :
+                     (mux_rs2_rd == 4'd2) ? reg2 :
+                     (mux_rs2_rd == 4'd3) ? reg3 :
+                     (mux_rs2_rd == 4'd4) ? reg4 :
+                     (mux_rs2_rd == 4'd5) ? reg5 :
+                     (mux_rs2_rd == 4'd6) ? reg6 :
+                     (mux_rs2_rd == 4'd7) ? reg7 :
+                     (mux_rs2_rd == 4'd8) ? reg8 :
+                     (mux_rs2_rd == 4'd9) ? reg9 :
+                     (mux_rs2_rd == 4'd10) ? reg10 :
+                     (mux_rs2_rd == 4'd11) ? reg11 :
+                     (mux_rs2_rd == 4'd12) ? reg12 :
+                     (mux_rs2_rd == 4'd13) ? reg13 :
+                     (mux_rs2_rd == 4'd14) ? reg14 :
+                     (mux_rs2_rd == 4'd15) ? reg15 :
+                     '0;
+    
+    
     
     always @(posedge clk_i or negedge resetn_i)
     begin
@@ -227,11 +217,6 @@ module ex_module (
         zflg_o = (mux_opa == 0);
         rdregaddr_o = mux_opa;
         rdregout_o = mux_opb;
-//        ssel_result_o = ssel_result;
-//        isel_result_o = isel_result;
-//        rsel_result_o = rsel_result;
-//        wen_o = wen;
-//        rd_o = rd;
     end
     
 //    assign zflg_o = (mux_opa == 0);
