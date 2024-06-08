@@ -27,19 +27,16 @@ module tb_if_module();
     logic resetn;
     logic ce;
     logic start;
-    logic zflg;
-    logic [12-1:0] rdreg;
-    wire [16-1:0] instruction;
+    
+    logic [16-1:0] instruction;
     
     always #(PERIOD/2) clk = ~clk;
 
-    if_module uut_if (
+    top_module uut_if (
         .clk_i(clk),
         .resetn_i(resetn),
         .ce_i(ce),
         .start_i(start),
-        .zflg_i(zflg),
-        .rdreg_i(rdreg),
         .instruction_o(instruction)
     );
     
@@ -48,8 +45,6 @@ module tb_if_module();
         resetn = 0;
         ce = 0;
         start = 0;
-        zflg = 0;
-        rdreg = '0;
         
         #(PERIOD);
         resetn = 1;

@@ -32,9 +32,8 @@ module top_module(
     output [8-1:0] opresult_o,
     // sysnthesis translate_on
     output [16-1:0] instruction_o
-    );
+);
     
-    // few ries
     wire zflg;
     wire [7:0] rd_addr; // rs1
     wire [7:0] rd_out;  // rs2
@@ -42,24 +41,26 @@ module top_module(
     
     // Decode, Execution, Memory, WriteBack
     ex_module ex_module(
-    .clk_i(clk_i),
-    .resetn_i(resetn_i),
-    .ce_i(ce_i),
-    .instruction_i(instruction),
-    .zflg_o(zflg),
-    .rdregaddr_o(rd_addr),
-    .rdregout_o(rd_out)
+        .clk_i(clk_i),
+        .resetn_i(resetn_i),
+        .ce_i(ce_i),
+        .instruction_i(instruction),
+        .zflg_o(zflg),
+        .rdregaddr_o(rd_addr),
+        .rdregout_o(rd_out)
     );
     
     // Instruction Fetch
     if_module if_module(
-    .clk_i(clk_i),
-    .resetn_i(resetn_i),
-    .ce_i(ce_i),
-    .start_i(start_i),
-    .zflg_i(zflg),
-    .rdreg_i(rdregout),
-    .instruction_o(instruction)
+        .clk_i(clk_i),
+        .resetn_i(resetn_i),
+        .ce_i(ce_i),
+        .start_i(start_i),
+        .zflg_i(zflg),
+        .rdreg_i(rdregout),
+        .instruction_o(instruction)
     );
+    
+    assign instruction_o = instruction;
     
 endmodule

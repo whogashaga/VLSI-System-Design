@@ -38,7 +38,7 @@ module ex_module (
     
     output reg zflg_o,
     output reg [7:0] rdregaddr_o,   // rs1 result
-    output reg [7:0] rdregout_o    // rs2 result  
+    output reg [7:0] rdregout_o     // rs2 result  
 );
 
     reg [8-1:0] reg0;

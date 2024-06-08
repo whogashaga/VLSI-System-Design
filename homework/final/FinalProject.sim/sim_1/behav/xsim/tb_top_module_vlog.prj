@@ -1,0 +1,30 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../FinalProject.gen/sources_1/ip/blk_mem_data/sim/blk_mem_data.v" \
+"../../../../FinalProject.gen/sources_1/ip/blk_mem_program/sim/blk_mem_program.v" \
+
+sv xil_defaultlib  \
+"../../../../FinalProject.srcs/sources_1/new/alu_module.sv" \
+"../../../../FinalProject.srcs/sources_1/new/decode_module.sv" \
+"../../../../FinalProject.srcs/sources_1/new/if_module.sv" \
+"../../../../FinalProject.srcs/sources_1/new/pc_stack_module.sv" \
+"../../../../FinalProject.srcs/sources_1/new/sru_module.sv" \
+"../../../../FinalProject.srcs/sources_1/new/ex_module.sv" \
+"../../../../FinalProject.srcs/sources_1/new/top_module.sv" \
+
+verilog xil_defaultlib  \
+"../../../../specs/risc_pack.v" \
+
+sv xil_defaultlib  \
+"../../../../FinalProject.srcs/sim_1/new/tb_ex_module.sv" \
+"../../../../FinalProject.srcs/sim_1/new/tb_if_module.sv" \
+"../../../../FinalProject.srcs/sim_1/new/tb_sru.sv" \
+"../../../../FinalProject.srcs/sim_1/new/tb_alu.sv" \
+"../../../../FinalProject.srcs/sim_1/new/tb_decoder_module.sv" \
+"../../../../FinalProject.srcs/sim_1/new/tb_top_module.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
