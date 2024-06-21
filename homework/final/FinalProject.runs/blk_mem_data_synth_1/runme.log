@@ -1,7 +1,0 @@
-
-*** Running vivado
-    with args -log blk_mem_data.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source blk_mem_data.tcl
-
-
-ECHO is off.
-ECHO is off.

@@ -1,4 +1,0 @@
-Time resolution is 1 ps
-a:         15, b:         10, product:                  150
-a: 4294967281, b:         30, product: 18446744073709551166
-$finish called at time : 350 ns : File "C:/Users/coe_user/Documents/ECE574_Local/homework/hw5/assignment5.srcs/sim_1/new/tb_multiplier_32_dsp.sv" Line 80

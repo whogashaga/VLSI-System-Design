@@ -1,1 +1,0 @@
-mult_direct.vhd,vhdl,xil_defaultlib,../../../../assignment3.gen/sources_1/ip/mult_direct/sim/mult_direct.vhd,
